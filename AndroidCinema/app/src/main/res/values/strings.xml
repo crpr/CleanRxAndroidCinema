@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Cinema</string>
+    <string name="environment">prod</string>
 </resources>

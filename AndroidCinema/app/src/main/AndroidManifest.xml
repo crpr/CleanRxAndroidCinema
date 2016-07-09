@@ -15,7 +15,7 @@
             android:name="environment"
             android:value="@string/environment" />
 
-        <activity android:name=".presentation.get_configuration.ConfigurationActivity">
+        <activity android:name=".presentation.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

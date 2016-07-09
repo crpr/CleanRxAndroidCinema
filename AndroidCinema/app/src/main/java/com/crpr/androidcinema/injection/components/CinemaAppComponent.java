@@ -1,7 +1,7 @@
 package com.crpr.androidcinema.injection.components;
 
 import com.crpr.androidcinema.data.api.factories.InterceptorsFactory;
-import com.crpr.androidcinema.presentation.get_configuration.ConfigurationActivity;
+import com.crpr.androidcinema.presentation.splash.SplashActivity;
 
 /**
  * Created by claudioribeiro on 08/07/16.
@@ -9,7 +9,7 @@ import com.crpr.androidcinema.presentation.get_configuration.ConfigurationActivi
 public interface CinemaAppComponent {
 
     //activities
-    void inject(ConfigurationActivity activity);
+    void inject(SplashActivity activity);
 
     //fragments
 

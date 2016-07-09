@@ -2,10 +2,11 @@ package com.crpr.androidcinema.injection.modules;
 
 import com.crpr.androidcinema.data.api.factories.ApiServiceFactory;
 import com.crpr.androidcinema.data.api.services.ApiConfigurationService;
-import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
-import com.crpr.androidcinema.domain.get_configuration.GetConfigurationInteractor;
-import com.crpr.androidcinema.domain.get_configuration.GetConfigurationProcess;
-import com.crpr.androidcinema.presentation.get_configuration.GetConfigurationPresenter;
+import com.crpr.androidcinema.domain.common.configuration.GetConfiguration;
+import com.crpr.androidcinema.domain.splash.Splash;
+import com.crpr.androidcinema.domain.splash.SplashInteractor;
+import com.crpr.androidcinema.domain.common.configuration.GetConfigurationProcess;
+import com.crpr.androidcinema.presentation.splash.SplashPresenter;
 
 import javax.inject.Named;
 
@@ -18,20 +19,6 @@ import rx.Scheduler;
  */
 @Module
 public class ConfigurationModule {
-
-    /************************* PRESENTER *******************************/
-    @Provides
-    GetConfiguration.Presenter provideGetConfigurationPresenter(GetConfiguration.Interactor interactor){
-        return new GetConfigurationPresenter(interactor);
-    }
-
-    /************************* INTERACTOR *******************************/
-    @Provides
-    GetConfiguration.Interactor provideGetConfigurationInteractor(@Named("marvel_main_thread") Scheduler mainThread,
-                                                                  @Named("marvel_executor_thread") Scheduler executorThread,
-                                                                  GetConfiguration.Process process){
-        return new GetConfigurationInteractor(mainThread, executorThread, process);
-    }
 
     /************************* PROCESS *******************************/
     @Provides

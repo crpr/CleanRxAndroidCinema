@@ -1,4 +1,4 @@
-package com.crpr.androidcinema.domain.get_configuration;
+package com.crpr.androidcinema.domain.common.configuration;
 
 import java.util.Map;
 

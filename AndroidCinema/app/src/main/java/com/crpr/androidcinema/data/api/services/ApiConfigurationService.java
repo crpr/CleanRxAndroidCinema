@@ -1,7 +1,7 @@
 package com.crpr.androidcinema.data.api.services;
 
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
-import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
+import com.crpr.androidcinema.domain.common.configuration.GetConfiguration;
 
 import retrofit2.http.GET;
 import rx.Observable;

@@ -1,7 +1,7 @@
-package com.crpr.androidcinema.domain.common;
+package com.crpr.androidcinema.domain.common.providers;
 
 import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
-import com.crpr.androidcinema.domain.get_configuration.ConfigurationModel;
+import com.crpr.androidcinema.domain.common.configuration.ConfigurationModel;
 
 /**
  * Created by claudioribeiro on 09/07/16.

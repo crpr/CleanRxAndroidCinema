@@ -1,9 +1,9 @@
-package com.crpr.androidcinema.domain.get_configuration;
+package com.crpr.androidcinema.domain.common.configuration;
 
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
 import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
-import com.crpr.androidcinema.data.api.services.ApiConfigurationService;
-import com.crpr.androidcinema.domain.common.ImageUrlProvider;
+import com.crpr.androidcinema.domain.common.Result;
+import com.crpr.androidcinema.domain.common.providers.ImageUrlProvider;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,12 +23,12 @@ public class GetConfigurationProcess implements GetConfiguration.Process {
     }
 
     /**************** GET UPDATED CONFIGURATION ***********************/
-    public Observable<ConfigurationModel> getConfiguration(){
+    public Observable<Result> getConfiguration(){
         return _service.getConfiguration()
                     .flatMap(this::configureImageUrlProvider);
     }
 
-    private Observable<ConfigurationModel> configureImageUrlProvider(ApiConfiguration configuration) {
+    private Observable<Result> configureImageUrlProvider(ApiConfiguration configuration) {
 
         ConfigurationModel model = ConfigurationModel
                                     .url(configuration.getImagesConfiguration().getBaseUrl())
@@ -37,12 +37,12 @@ public class GetConfigurationProcess implements GetConfiguration.Process {
                                     .build();
 
         if(model == null){
-            return null;
+            return Observable.just(new Result(Result.PROCESS_ERROR));
         }
 
         ImageUrlProvider.sharedInstance().setCurrentConfig(model);
 
-        return Observable.just(model);
+        return Observable.just(new Result(Result.PROCESS_OK));
     }
 
     private Map<String, String> buildUrlsMap(ApiConfiguration.ApiImagesConfiguration imagesConfiguration){

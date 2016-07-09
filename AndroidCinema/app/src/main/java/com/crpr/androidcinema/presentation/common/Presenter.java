@@ -1,9 +1,15 @@
 package com.crpr.androidcinema.presentation.common;
 
+import rx.Subscription;
+
 /**
  * Created by claudioribeiro on 08/07/16.
  */
 public abstract class Presenter {
+
+    protected boolean _isMakingRequest;
+    protected Subscription _subscription;
+
     //This methods should map to activities lifecycle
 
     public void onCreate(){}
@@ -14,7 +20,12 @@ public abstract class Presenter {
 
     public void onPause(){}
 
-    public void onDestroy(){}
+    public void onDestroy(){
+        if(_subscription != null && !_subscription.isUnsubscribed()) {
+            _subscription.unsubscribe();
+            _subscription = null;
+        }
+    }
 
     public abstract void bindView(AppView view);
 

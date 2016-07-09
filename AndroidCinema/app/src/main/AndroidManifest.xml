@@ -1,5 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.crpr.androidcinema">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".CinemaApp"
@@ -12,6 +15,12 @@
             android:name="environment"
             android:value="@string/environment" />
 
+        <activity android:name=".presentation.get_configuration.ConfigurationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

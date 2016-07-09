@@ -1,6 +1,7 @@
 package com.crpr.androidcinema.data.api.services;
 
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
+import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
 
 import retrofit2.http.GET;
 import rx.Observable;
@@ -8,7 +9,7 @@ import rx.Observable;
 /**
  * Created by claudioribeiro on 08/07/16.
  */
-public class ApiConfigurationService {
+public class ApiConfigurationService implements GetConfiguration.Service{
 
     public interface ServiceClient {
         @GET("configuration")

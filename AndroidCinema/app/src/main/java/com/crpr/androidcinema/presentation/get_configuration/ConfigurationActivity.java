@@ -9,13 +9,14 @@ import android.widget.Toast;
 import com.crpr.androidcinema.CinemaApp;
 import com.crpr.androidcinema.R;
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
+import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ConfigurationActivity extends AppCompatActivity implements ConfigurationView {
+public class ConfigurationActivity extends AppCompatActivity implements GetConfiguration.View {
 
     @BindView(R.id.toolbar)
     Toolbar _toolbar;
@@ -24,7 +25,7 @@ public class ConfigurationActivity extends AppCompatActivity implements Configur
     TextView _resultLabel;
 
     @Inject
-    GetConfigurationPresenter _presenter;
+    GetConfiguration.Presenter _presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

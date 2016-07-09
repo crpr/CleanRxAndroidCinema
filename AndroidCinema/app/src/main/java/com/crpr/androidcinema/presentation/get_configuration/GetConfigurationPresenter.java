@@ -1,28 +1,28 @@
 package com.crpr.androidcinema.presentation.get_configuration;
 
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
-import com.crpr.androidcinema.domain.get_configuration.GetConfigurationInteractor;
+import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
 import com.crpr.androidcinema.presentation.common.AppView;
 import com.crpr.androidcinema.presentation.common.Presenter;
 
 /**
  * Created by claudioribeiro on 09/07/16.
  */
-public class GetConfigurationPresenter extends Presenter {
+public class GetConfigurationPresenter extends Presenter implements GetConfiguration.Presenter {
 
-    private GetConfigurationInteractor _interactor;
-    private ConfigurationView _view;
+    private GetConfiguration.Interactor _interactor;
+    private GetConfiguration.View _view;
 
-    public GetConfigurationPresenter(GetConfigurationInteractor interactor){
+    public GetConfigurationPresenter(GetConfiguration.Interactor interactor){
         this._interactor = interactor;
     }
 
     @Override
     public void bindView(AppView view) {
-        this._view = (ConfigurationView) view;
+        this._view = (GetConfiguration.View) view;
     }
 
-    public void getConfiguration(){
+    public final void getConfiguration(){
         if(_isMakingRequest){
             return;
         }
@@ -33,12 +33,12 @@ public class GetConfigurationPresenter extends Presenter {
                                     this::onError);
     }
 
-    private void onReceiveConfiguration(ApiConfiguration configuration){
+    public final void onReceiveConfiguration(ApiConfiguration configuration){
         _isMakingRequest = false;
         _view.displayConfig(configuration);
     }
 
-    private void onError(Throwable throwable) {
+    public final void onError(Throwable throwable) {
         _isMakingRequest = false;
         _view.showError(throwable.getMessage());
     }

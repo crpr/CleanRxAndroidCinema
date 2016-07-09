@@ -11,12 +11,12 @@ import rx.Scheduler;
 /**
  * Created by claudioribeiro on 09/07/16.
  */
-public class GetConfigurationInteractor extends Interactor {
+public class GetConfigurationInteractor extends Interactor implements GetConfiguration.Interactor {
 
-    private final GetConfigurationProcess _process;
+    private final GetConfiguration.Process _process;
 
     public GetConfigurationInteractor(Scheduler mainThread, Scheduler executorThread,
-                                      GetConfigurationProcess process) {
+                                      GetConfiguration.Process process) {
         super(mainThread, executorThread);
         this._process = process;
     }

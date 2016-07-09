@@ -5,7 +5,7 @@ import rx.Subscription;
 /**
  * Created by claudioribeiro on 08/07/16.
  */
-public abstract class Presenter {
+public abstract class Presenter implements IPresenter {
 
     protected boolean _isMakingRequest;
     protected Subscription _subscription;

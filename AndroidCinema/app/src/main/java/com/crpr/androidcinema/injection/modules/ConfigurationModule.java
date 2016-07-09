@@ -2,6 +2,7 @@ package com.crpr.androidcinema.injection.modules;
 
 import com.crpr.androidcinema.data.api.factories.ApiServiceFactory;
 import com.crpr.androidcinema.data.api.services.ApiConfigurationService;
+import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
 import com.crpr.androidcinema.domain.get_configuration.GetConfigurationInteractor;
 import com.crpr.androidcinema.domain.get_configuration.GetConfigurationProcess;
 import com.crpr.androidcinema.presentation.get_configuration.GetConfigurationPresenter;
@@ -20,27 +21,27 @@ public class ConfigurationModule {
 
     /************************* PRESENTER *******************************/
     @Provides
-    GetConfigurationPresenter provideGetConfigurationPresenter(GetConfigurationInteractor interactor){
+    GetConfiguration.Presenter provideGetConfigurationPresenter(GetConfiguration.Interactor interactor){
         return new GetConfigurationPresenter(interactor);
     }
 
     /************************* INTERACTOR *******************************/
     @Provides
-    GetConfigurationInteractor provideGetConfigurationInteractor(@Named("marvel_main_thread") Scheduler mainThread,
-                                                                 @Named("marvel_executor_thread") Scheduler executorThread,
-                                                                 GetConfigurationProcess process){
+    GetConfiguration.Interactor provideGetConfigurationInteractor(@Named("marvel_main_thread") Scheduler mainThread,
+                                                                  @Named("marvel_executor_thread") Scheduler executorThread,
+                                                                  GetConfiguration.Process process){
         return new GetConfigurationInteractor(mainThread, executorThread, process);
     }
 
     /************************* PROCESS *******************************/
     @Provides
-    GetConfigurationProcess provideGetConfigurationProcess(ApiConfigurationService service){
+    GetConfiguration.Process provideGetConfigurationProcess(GetConfiguration.Service service){
         return new GetConfigurationProcess(service);
     }
 
     /************************* SERVICE *******************************/
     @Provides
-    ApiConfigurationService provideApiConfigurationService(ApiServiceFactory factory){
+    GetConfiguration.Service provideApiConfigurationService(ApiServiceFactory factory){
         return new ApiConfigurationService(factory.getServiceClient(ApiConfigurationService.ServiceClient.class));
     }
 

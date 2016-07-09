@@ -8,11 +8,11 @@ import rx.Observable;
 /**
  * Created by claudioribeiro on 09/07/16.
  */
-public class GetConfigurationProcess {
+public class GetConfigurationProcess implements GetConfiguration.Process {
 
-    private final ApiConfigurationService _service;
+    private final GetConfiguration.Service _service;
 
-    public GetConfigurationProcess(ApiConfigurationService service){
+    public GetConfigurationProcess(GetConfiguration.Service service){
         this._service = service;
     }
 

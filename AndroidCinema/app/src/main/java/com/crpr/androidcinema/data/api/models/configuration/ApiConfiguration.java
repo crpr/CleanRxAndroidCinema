@@ -1,6 +1,6 @@
 package com.crpr.androidcinema.data.api.models.configuration;
 
-import com.crpr.androidcinema.data.api.models.configuration.enums.Configuration;
+import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,11 +15,11 @@ public class ApiConfiguration implements Serializable {
 
         private String base_url;
         private String secure_base_url;
-        private List<Configuration.BackdropSize> backdrop_sizes;
-        private List<Configuration.LogoSize> logo_sizes;
-        private List<Configuration.PosterSize> poster_sizes;
-        private List<Configuration.ProfileSize> profile_sizes;
-        private List<Configuration.StillSize> still_sizes;
+        private List<Size> backdrop_sizes;
+        private List<Size> logo_sizes;
+        private List<Size> poster_sizes;
+        private List<Size> profile_sizes;
+        private List<Size> still_sizes;
 
         public String getBaseUrl() {
             return base_url;
@@ -29,23 +29,23 @@ public class ApiConfiguration implements Serializable {
             return secure_base_url;
         }
 
-        public List<Configuration.BackdropSize> getBackdropSizes() {
+        public List<Size> getBackdropSizes() {
             return backdrop_sizes;
         }
 
-        public List<Configuration.LogoSize> getLogoSizes() {
+        public List<Size> getLogoSizes() {
             return logo_sizes;
         }
 
-        public List<Configuration.PosterSize> getPosterSizes() {
+        public List<Size> getPosterSizes() {
             return poster_sizes;
         }
 
-        public List<Configuration.ProfileSize> getProfileSizes() {
+        public List<Size> getProfileSizes() {
             return profile_sizes;
         }
 
-        public List<Configuration.StillSize> getStillSizes() {
+        public List<Size> getStillSizes() {
             return still_sizes;
         }
     }

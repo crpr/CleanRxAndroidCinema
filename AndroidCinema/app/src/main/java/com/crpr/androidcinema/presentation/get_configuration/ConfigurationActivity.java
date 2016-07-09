@@ -8,7 +8,9 @@ import android.widget.Toast;
 
 import com.crpr.androidcinema.CinemaApp;
 import com.crpr.androidcinema.R;
-import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
+import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
+import com.crpr.androidcinema.domain.common.ImageUrlProvider;
+import com.crpr.androidcinema.domain.get_configuration.ConfigurationModel;
 import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
 
 import javax.inject.Inject;
@@ -21,8 +23,14 @@ public class ConfigurationActivity extends AppCompatActivity implements GetConfi
     @BindView(R.id.toolbar)
     Toolbar _toolbar;
 
-    @BindView(R.id.config_result)
-    TextView _resultLabel;
+    @BindView(R.id.config_base_url)
+    TextView _baseUrlLabel;
+
+    @BindView(R.id.config_secure_url)
+    TextView _secureUrlLabel;
+
+    @BindView(R.id.config_url)
+    TextView _urlLabel;
 
     @Inject
     GetConfiguration.Presenter _presenter;
@@ -78,8 +86,10 @@ public class ConfigurationActivity extends AppCompatActivity implements GetConfi
     }
 
     @Override
-    public void displayConfig(ApiConfiguration configuration) {
-        _resultLabel.setText("BaseUrl: " + configuration.getImagesConfiguration().getBaseUrl());
+    public void displayConfig(ConfigurationModel configuration) {
+        _baseUrlLabel.setText("BaseUrl: " + configuration.getBaseUrl());
+        _secureUrlLabel.setText("SecureUrl: " + configuration.getSecureBaseUrl());
+        _urlLabel.setText("Url: " + ImageUrlProvider.sharedInstance().getUrlFor(ConfigurationModel.LOGO, Size.W300));
     }
 
     @Override

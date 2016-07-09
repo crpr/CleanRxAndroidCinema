@@ -12,21 +12,21 @@ import rx.Observable;
 public interface GetConfiguration {
 
     interface View extends AppView {
-        void displayConfig(ApiConfiguration configuration);
+        void displayConfig(ConfigurationModel configuration);
         void showError(String message);
     }
 
     interface Presenter extends IPresenter {
         void getConfiguration();
-        void onReceiveConfiguration(ApiConfiguration configuration);
+        void onReceiveConfiguration(ConfigurationModel configuration);
     }
 
     interface Interactor {
-        Observable<ApiConfiguration> getConfiguration();
+        Observable<ConfigurationModel> getConfiguration();
     }
 
     interface Process {
-        Observable<ApiConfiguration> getConfiguration();
+        Observable<ConfigurationModel> getConfiguration();
     }
 
     interface Service {

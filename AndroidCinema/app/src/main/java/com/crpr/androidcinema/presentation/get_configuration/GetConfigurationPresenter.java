@@ -1,6 +1,7 @@
 package com.crpr.androidcinema.presentation.get_configuration;
 
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
+import com.crpr.androidcinema.domain.get_configuration.ConfigurationModel;
 import com.crpr.androidcinema.domain.get_configuration.GetConfiguration;
 import com.crpr.androidcinema.presentation.common.AppView;
 import com.crpr.androidcinema.presentation.common.Presenter;
@@ -33,7 +34,7 @@ public class GetConfigurationPresenter extends Presenter implements GetConfigura
                                     this::onError);
     }
 
-    public final void onReceiveConfiguration(ApiConfiguration configuration){
+    public final void onReceiveConfiguration(ConfigurationModel configuration){
         _isMakingRequest = false;
         _view.displayConfig(configuration);
     }

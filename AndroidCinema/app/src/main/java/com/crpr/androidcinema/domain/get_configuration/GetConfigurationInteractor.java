@@ -21,13 +21,11 @@ public class GetConfigurationInteractor extends Interactor implements GetConfigu
         this._process = process;
     }
 
-    public Observable<ApiConfiguration> getConfiguration(){
+    public Observable<ConfigurationModel> getConfiguration(){
         return _process.getConfiguration()
                 .observeOn(_mainThread)
                 .subscribeOn(_executorThread)
-                .doOnError(throwable -> {
-                    Log.e("INTERACTOR ERROR", "DO SOMETHING IN THIS LAYER");
-                });
+                .doOnError(throwable -> Log.e("INTERACTOR ERROR", "DO SOMETHING IN THIS LAYER"));
     }
 
 }

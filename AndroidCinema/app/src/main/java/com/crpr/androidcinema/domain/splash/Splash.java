@@ -3,8 +3,7 @@ package com.crpr.androidcinema.domain.splash;
 import android.app.Activity;
 
 import com.crpr.androidcinema.domain.common.Result;
-import com.crpr.androidcinema.presentation.common.AppView;
-import com.crpr.androidcinema.presentation.common.IPresenter;
+import com.crpr.androidcinema.presentation.common.Base;
 
 import rx.Observable;
 
@@ -13,12 +12,12 @@ import rx.Observable;
  */
 public interface Splash {
 
-    interface View extends AppView {
+    interface View extends Base.View {
         void goToNextActivity();
         void showError(String message);
     }
 
-    interface Presenter extends IPresenter {
+    interface Presenter extends Base.Presenter {
         void getConfiguration();
         void onReceiveResult(Result result);
     }

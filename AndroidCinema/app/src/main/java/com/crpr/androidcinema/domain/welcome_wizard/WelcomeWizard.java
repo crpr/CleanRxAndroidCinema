@@ -2,8 +2,7 @@ package com.crpr.androidcinema.domain.welcome_wizard;
 
 import android.app.Activity;
 
-import com.crpr.androidcinema.presentation.common.AppView;
-import com.crpr.androidcinema.presentation.common.IPresenter;
+import com.crpr.androidcinema.presentation.common.Base;
 import com.crpr.androidcinema.presentation.welcome_wizard.fragments.DefaultSlideFragment;
 
 import java.util.List;
@@ -15,12 +14,12 @@ import rx.Observable;
  */
 public interface WelcomeWizard {
 
-    interface View extends AppView {
+    interface View extends Base.View {
         void buildSlides(List<DefaultSlideFragment> slides);
         void userIsDone();
     }
 
-    interface Presenter extends IPresenter {
+    interface Presenter extends Base.Presenter {
         void onCreate();
         Observable<List<DefaultSlideFragment>> getSlides();
         void userIsDoneWithWelcomeWizard();

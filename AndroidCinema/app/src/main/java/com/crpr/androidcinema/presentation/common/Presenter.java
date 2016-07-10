@@ -1,14 +1,14 @@
 package com.crpr.androidcinema.presentation.common;
 
-import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by claudioribeiro on 08/07/16.
  */
-public abstract class Presenter implements IPresenter {
+public abstract class Presenter implements Base.Presenter {
 
     protected boolean _isMakingRequest;
-    protected Subscription _subscription;
+    protected CompositeSubscription _subscriptions = new CompositeSubscription();
 
     //This methods should map to activities lifecycle
 
@@ -21,12 +21,12 @@ public abstract class Presenter implements IPresenter {
     public void onPause(){}
 
     public void onDestroy(){
-        if(_subscription != null && !_subscription.isUnsubscribed()) {
-            _subscription.unsubscribe();
-            _subscription = null;
+        if(_subscriptions != null && _subscriptions.hasSubscriptions()){
+            _subscriptions.unsubscribe();
+            _subscriptions = null;
         }
     }
 
-    public abstract void bindView(AppView view);
+    public abstract void bindView(Base.View view);
 
 }

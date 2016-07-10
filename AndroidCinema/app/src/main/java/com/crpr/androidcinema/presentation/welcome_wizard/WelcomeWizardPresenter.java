@@ -1,7 +1,7 @@
 package com.crpr.androidcinema.presentation.welcome_wizard;
 
 import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizard;
-import com.crpr.androidcinema.presentation.common.AppView;
+import com.crpr.androidcinema.presentation.common.Base;
 import com.crpr.androidcinema.presentation.common.Presenter;
 import com.crpr.androidcinema.presentation.welcome_wizard.fragments.DefaultSlideFragment;
 
@@ -17,8 +17,6 @@ import rx.schedulers.Schedulers;
  */
 public class WelcomeWizardPresenter extends Presenter implements WelcomeWizard.Presenter {
 
-    private Subscription _userIsDoneSubscription;
-
     private WelcomeWizard.View _view;
     private WelcomeWizardStepsGenerator _stepsGenerator;
     private WelcomeWizard.Interactor _interactor;
@@ -30,12 +28,12 @@ public class WelcomeWizardPresenter extends Presenter implements WelcomeWizard.P
 
     @Override
     public void onCreate() {
-        _subscription = getSlides()
+        _subscriptions.add(getSlides()
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeOn(Schedulers.io())
                             .subscribe(defaultSlideFragments -> {
                                 _view.buildSlides(defaultSlideFragments);
-                            });
+                            }));
     }
 
     public final Observable<List<DefaultSlideFragment>> getSlides(){
@@ -51,23 +49,17 @@ public class WelcomeWizardPresenter extends Presenter implements WelcomeWizard.P
     public void onDestroy() {
         super.onDestroy();
 
-        if(_userIsDoneSubscription != null && !_userIsDoneSubscription.isUnsubscribed()){
-            _userIsDoneSubscription.unsubscribe();
-        }
-
-        _userIsDoneSubscription = null;
-
         _view = null;
         _stepsGenerator = null;
     }
 
     @Override
-    public void bindView(AppView v) {
+    public void bindView(Base.View v) {
         _view = (WelcomeWizard.View) v;
     }
 
     public final void userIsDoneWithWelcomeWizard() {
-        _userIsDoneSubscription = _interactor.updateWelcomeWizardDone(true)
-                                    .subscribe(aBoolean -> { _view.userIsDone(); });
+        _subscriptions.add(_interactor.updateWelcomeWizardDone(true)
+                                    .subscribe(aBoolean -> { _view.userIsDone(); }));
     }
 }

@@ -2,7 +2,7 @@ package com.crpr.androidcinema.presentation.splash;
 
 import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.splash.Splash;
-import com.crpr.androidcinema.presentation.common.AppView;
+import com.crpr.androidcinema.presentation.common.Base;
 import com.crpr.androidcinema.presentation.common.Presenter;
 
 /**
@@ -18,7 +18,7 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
     }
 
     @Override
-    public void bindView(AppView view) {
+    public void bindView(Base.View view) {
         this._view = (Splash.View) view;
     }
 
@@ -36,9 +36,9 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
         }
 
         _isMakingRequest = true;
-        _subscription = _interactor.getConfiguration()
+        _subscriptions.add(_interactor.getConfiguration()
                             .subscribe(this::onReceiveResult,
-                                    this::onError);
+                                    this::onError));
     }
 
     @Override

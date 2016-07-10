@@ -36,22 +36,23 @@ public class IntroModule {
     }
 
     @Provides
-    WelcomeWizard.Presenter provideWelcomeWizardPresenter(WelcomeWizardStepsGenerator generator, WelcomeWizard.Interactor interactor){
+    WelcomeWizard.Presenter provideWelcomeWizardPresenter(WelcomeWizardStepsGenerator generator,
+                                                          WelcomeWizard.Interactor interactor){
         return new WelcomeWizardPresenter(generator, interactor);
     }
 
     /************************* INTERACTOR *******************************/
     @Provides
     Splash.Interactor provideSplashInteractor(@Named("marvel_main_thread") Scheduler mainThread,
-                                                        @Named("marvel_executor_thread") Scheduler executorThread,
-                                                        GetConfiguration.Process process){
+                                                @Named("marvel_executor_thread") Scheduler executorThread,
+                                                GetConfiguration.Process process){
         return new SplashInteractor(mainThread, executorThread, process);
     }
 
     @Provides
     WelcomeWizard.Interactor provideWelcomeWizardInteractor(@Named("marvel_main_thread") Scheduler mainThread,
-                                              @Named("marvel_executor_thread") Scheduler executorThread,
-                                              WelcomeWizard.Process process){
+                                                @Named("marvel_executor_thread") Scheduler executorThread,
+                                                WelcomeWizard.Process process){
         return new WelcomeWizardInteractor(mainThread, executorThread, process);
     }
 

@@ -25,10 +25,14 @@ public class OkHttpClientFactory {
 
         switch (type){
             case CONFIG_CLIENT:
+                builder.addNetworkInterceptor(_factory.get(InterceptorsFactory.LOG));
                 builder.addNetworkInterceptor(_factory.get(InterceptorsFactory.AUTH));
+                builder.addInterceptor(_factory.get(InterceptorsFactory.HTTP));
                 break;
 
             default:
+                builder.addNetworkInterceptor(_factory.get(InterceptorsFactory.LOG));
+                builder.addInterceptor(_factory.get(InterceptorsFactory.HTTP));
                 break;
         }
 

@@ -36,14 +36,17 @@ public class OkHttpClientFactoryTest {
 
         assertThat(okHttpClient, notNullValue());
         verify(interceptorsFactory, times(1)).get(InterceptorsFactory.AUTH);
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.LOG);
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.HTTP);
         verifyNoMoreInteractions(interceptorsFactory);
         assertEquals(30*1000, okHttpClient.readTimeoutMillis());
         assertEquals(30*1000, okHttpClient.connectTimeoutMillis());
-        assertEquals(1, okHttpClient.networkInterceptors().size());
+        assertEquals(2, okHttpClient.networkInterceptors().size());
+        assertEquals(1, okHttpClient.interceptors().size());
     }
 
     @Test
-    public void getEmptyClient(){
+    public void getDefaultClient(){
         OkHttpClientFactory factory = new OkHttpClientFactory(interceptorsFactory);
 
         assertThat(factory, notNullValue());
@@ -52,9 +55,12 @@ public class OkHttpClientFactoryTest {
 
         assertThat(okHttpClient, notNullValue());
         verify(interceptorsFactory, times(0)).get(InterceptorsFactory.AUTH);
-        verifyZeroInteractions(interceptorsFactory);
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.LOG);
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.HTTP);
+        verifyNoMoreInteractions(interceptorsFactory);
         assertEquals(30*1000, okHttpClient.readTimeoutMillis());
         assertEquals(30*1000, okHttpClient.connectTimeoutMillis());
-        assertEquals(0, okHttpClient.networkInterceptors().size());
+        assertEquals(1, okHttpClient.networkInterceptors().size());
+        assertEquals(1, okHttpClient.interceptors().size());
     }
 }

@@ -10,17 +10,18 @@ ext {
     ]
 
     libraries = [
-            supportVersion      : "24.0.0",
-            dagger              : "2.5",
-            rxjava              : "1.1.6",
-            rxandroid           : "1.2.1",
-            retrofit            : "2.1.0",
-            gsonConverter       : "2.1.0",
-            rxAdapter           : "2.1.0",
-            butterknife         : "8.1.0",
-            javax_annotation    : "10.0-b28",
-            glide               : "3.7.0",
-            okhttp              : "3.3.1"
+            supportVersion          : "24.0.0",
+            dagger                  : "2.5",
+            rxjava                  : "1.1.6",
+            rxandroid               : "1.2.1",
+            retrofit                : "2.1.0",
+            gsonConverter           : "2.1.0",
+            rxAdapter               : "2.1.0",
+            retrofitLogInterceptor  : "3.3.1",
+            butterknife             : "8.1.0",
+            javax_annotation        : "10.0-b28",
+            glide                   : "3.7.0",
+            okhttp                  : "3.3.1"
     ]
 
     testingLibraries = [

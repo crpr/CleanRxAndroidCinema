@@ -7,11 +7,13 @@ import com.crpr.androidcinema.data.api.factories.ApiServiceFactory;
 import com.crpr.androidcinema.data.api.factories.InterceptorsFactory;
 import com.crpr.androidcinema.data.api.factories.OkHttpClientFactory;
 import com.crpr.androidcinema.data.api.interceptors.AuthInterceptor;
+import com.crpr.androidcinema.data.api.interceptors.LogInterceptor;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by claudioribeiro on 09/07/16.
@@ -22,8 +24,18 @@ public class ApiModule {
     /***************** INTERCEPTORS *******************************/
 
     @Provides
-    AuthInterceptor provideMarvelAuthInterceptor(PropertiesLoader propertiesLoader){
+    AuthInterceptor provideAuthInterceptor(PropertiesLoader propertiesLoader){
         return new AuthInterceptor(propertiesLoader.getProperty(PropertiesLoader.API_KEY));
+    }
+
+    @Provides
+    LogInterceptor provideLogInterceptor(){
+        return new LogInterceptor();
+    }
+
+    @Provides
+    HttpLoggingInterceptor provideHttpLoggingInterceptor(){
+        return new HttpLoggingInterceptor();
     }
 
     /****************** FACTORIES ******************************/

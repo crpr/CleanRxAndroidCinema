@@ -40,7 +40,7 @@ public class ApiConfigurationServiceTest extends BaseTest<ApiConfiguration>{
         service.getConfiguration().subscribe(testSubscriber);
 
         testSubscriber.assertNoErrors();
-        ApiConfiguration rvalue = (ApiConfiguration) testSubscriber.getOnNextEvents();
+        ApiConfiguration rvalue = testSubscriber.getOnNextEvents().get(0);
         assertThat(rvalue, notNullValue());
     }
 }

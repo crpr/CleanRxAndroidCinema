@@ -71,6 +71,7 @@ dependencies {
     compile "com.squareup.okhttp3:okhttp:${libs.okhttp}"
     compile "com.squareup.retrofit2:converter-gson:${libs.gsonConverter}"
     compile "com.squareup.retrofit2:adapter-rxjava:${libs.rxAdapter}"
+    compile "com.squareup.okhttp3:logging-interceptor:${libs.retrofitLogInterceptor}"
 
     compile "com.google.dagger:dagger:${libs.dagger}"
     compile "org.glassfish:javax.annotation:${libs.javax_annotation}"

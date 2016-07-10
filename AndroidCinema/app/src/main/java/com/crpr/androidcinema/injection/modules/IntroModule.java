@@ -2,9 +2,9 @@ package com.crpr.androidcinema.injection.modules;
 
 import android.content.Context;
 
+import com.crpr.androidcinema.data.preferences.AppPreferences;
 import com.crpr.androidcinema.data.preferences.PreferencesService;
 import com.crpr.androidcinema.domain.common.configuration.GetConfiguration;
-import com.crpr.androidcinema.domain.common.configuration.GetConfigurationProcess;
 import com.crpr.androidcinema.domain.splash.Splash;
 import com.crpr.androidcinema.domain.splash.SplashInteractor;
 import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizard;
@@ -71,8 +71,8 @@ public class IntroModule {
 
     /************************* PROCESS *******************************/
     @Provides
-    WelcomeWizard.Process provideWelcomeWizardProcess(PreferencesService preferencesService){
-        return new WelcomeWizardProcess(preferencesService);
+    WelcomeWizard.Process provideWelcomeWizardProcess(PreferencesService appPreferences){
+        return new WelcomeWizardProcess(appPreferences);
     }
 
     /************************* GENERATORS *******************************/

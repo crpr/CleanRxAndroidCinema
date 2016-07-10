@@ -25,7 +25,7 @@ ext {
 
     testingLibraries = [
             junit               : "4.12",
-            mockito             : "1.10.5",
+            mockito             : "1.10.19",
             espresso            : "2.2.1",
             espressoRunner      : "0.4.1",
             espressoRules       : "0.4.1",

@@ -1,6 +1,5 @@
 package com.crpr.androidcinema.domain.welcome_wizard;
 
-import com.crpr.androidcinema.data.preferences.AppPreferences;
 import com.crpr.androidcinema.data.preferences.PreferencesService;
 
 import rx.Observable;

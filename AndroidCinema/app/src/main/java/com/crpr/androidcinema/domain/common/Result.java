@@ -5,8 +5,8 @@ package com.crpr.androidcinema.domain.common;
  */
 public class Result {
 
-    public static final int PROCESS_OK = 1;
-    public static final int PROCESS_ERROR = 2;
+    public static final int OK = 1;
+    public static final int ERROR = 2;
     private final int _resultStatusCode;
     private String _message;
 
@@ -25,6 +25,6 @@ public class Result {
     }
 
     public boolean hasError(){
-        return this._resultStatusCode == PROCESS_ERROR;
+        return this._resultStatusCode == ERROR;
     }
 }

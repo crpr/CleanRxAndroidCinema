@@ -1,13 +1,8 @@
 package com.crpr.androidcinema.domain.common.configuration;
 
 import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
-import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
 import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.common.providers.ImageUrlProvider;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import rx.Observable;
 
@@ -37,11 +32,11 @@ public class GetConfigurationProcess implements GetConfiguration.Process {
                                     .build();
 
         if(model == null){
-            return Observable.just(new Result(Result.PROCESS_ERROR));
+            return Observable.just(new Result(Result.ERROR));
         }
 
         ImageUrlProvider.sharedInstance().setCurrentConfig(model);
 
-        return Observable.just(new Result(Result.PROCESS_OK));
+        return Observable.just(new Result(Result.OK));
     }
 }

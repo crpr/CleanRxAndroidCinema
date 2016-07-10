@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_fragment_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/default_fragment_title_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:textAllCaps="true"
+        android:textColor="@color/default_fragment_title"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:layout_below="@+id/default_fragment_title_label"
+        android:layout_above="@+id/default_fragment_message_label"
+        android:id="@+id/default_fragment_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/default_fragment_message_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginRight="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/xlarge_margin"
+        android:paddingBottom="@dimen/xlarge_margin"/>
+
+</RelativeLayout>

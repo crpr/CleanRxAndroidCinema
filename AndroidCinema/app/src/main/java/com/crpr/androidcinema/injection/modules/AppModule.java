@@ -3,6 +3,8 @@ package com.crpr.androidcinema.injection.modules;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.gson.Gson;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -28,6 +30,12 @@ public class AppModule {
     @Singleton
     public Context provideContext(){
         return appInstance;
+    }
+
+    @Provides
+    @Singleton
+    public Gson provideGson(){
+        return new Gson();
     }
 
     @Provides

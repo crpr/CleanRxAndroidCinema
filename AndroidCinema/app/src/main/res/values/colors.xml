@@ -12,4 +12,11 @@
     <color name="grey_medium">#ff808080</color>
     <color name="grey_dark">#ff2c2c2c</color>
 
+    <!-- WELCOME WIZARD -->
+    <color name="default_selected_indicator">@color/accent</color>
+    <color name="default_unselected_indicator">#344146</color>
+    <color name="default_fragment_background">@color/primary</color>
+    <color name="default_fragment_title">@color/accent</color>
+    <color name="default_fab_background_color">#3b5998</color>
+
 </resources>

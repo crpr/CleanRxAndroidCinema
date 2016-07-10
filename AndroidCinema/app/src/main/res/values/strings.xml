@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Android Cinema</string>
     <string name="environment">prod</string>
+
+    <!-- WELCOME WIZARD -->
+    <string name="ww_skip_btn_label">Skip</string>
+    <string name="ww_done_btn_label">Done</string>
+    <string name="ww_next_btn_label">Next</string>
+
+    <string name="welcome_wizard_slide_1_title">Discover movies</string>
+    <string name="welcome_wizard_slide_2_title">Discover tv shows</string>
+    <string name="welcome_wizard_slide_3_title">Save favorites</string>
+    <string name="welcome_wizard_slide_1_description">Detailed data about movies. Detailed data about movies. Detailed data about movies. Detailed data about movies.  </string>
+    <string name="welcome_wizard_slide_2_description">Detailed data about tv shows</string>
+    <string name="welcome_wizard_slide_3_description">Create your favorites list. Create your favorites list. Create your favorites list. </string>
+
+
 </resources>

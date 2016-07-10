@@ -22,6 +22,14 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
         this._view = (Splash.View) view;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        _view = null;
+        _interactor = null;
+    }
+
     public final void getConfiguration(){
         if(_isMakingRequest){
             return;

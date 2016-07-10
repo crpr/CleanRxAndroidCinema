@@ -25,6 +25,14 @@ public class PreferencesService {
         return _prefs;
     }
 
+    public void setWelcomeWizardDone(boolean isDone){
+        getPreferences().edit().putBoolean("welcome_wizard_done", isDone).apply();
+    }
+
+    public boolean isWelcomeWizardDone(){
+        return getPreferences().getBoolean("welcome_wizard_done", false);
+    }
+
     public void putObject(String key, Object object) {
         if (key == null || key.equals("")) {
             throw new IllegalArgumentException("Key is empty or null");

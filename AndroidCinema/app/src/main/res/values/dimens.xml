@@ -16,4 +16,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- WELCOME WIZARD -->
+    <dimen name="medium_margin">16dp</dimen>
+    <dimen name="large_margin">40dp</dimen>
+    <dimen name="xlarge_margin">80dp</dimen>
+    <dimen name="insets">2dp</dimen>
+
 </resources>

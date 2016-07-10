@@ -7,6 +7,7 @@ import com.crpr.androidcinema.injection.modules.AppModule;
 import com.crpr.androidcinema.injection.modules.ConfigurationModule;
 import com.crpr.androidcinema.injection.modules.DatabaseModule;
 import com.crpr.androidcinema.injection.modules.IntroModule;
+import com.crpr.androidcinema.injection.modules.PreferencesModule;
 import com.crpr.androidcinema.injection.modules.PropertiesLoaderModule;
 
 import javax.inject.Singleton;
@@ -23,7 +24,8 @@ import dagger.Component;
         DatabaseModule.class,
         ApiModule.class,
         ConfigurationModule.class,
-        IntroModule.class
+        IntroModule.class,
+        PreferencesModule.class
 })
 public interface AppComponent extends CinemaAppComponent {
     Context context();

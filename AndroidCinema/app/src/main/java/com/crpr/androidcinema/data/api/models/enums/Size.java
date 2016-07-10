@@ -1,4 +1,4 @@
-package com.crpr.androidcinema.data.api.models.configuration.enums;
+package com.crpr.androidcinema.data.api.models.enums;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -55,7 +55,7 @@ public class ApiModule {
     @Provides
     @Singleton
     ApiServiceFactory provideApiServiceFactory(OkHttpClientFactory factory, PropertiesLoader properties){
-        return new ApiServiceFactory(factory.getClient(OkHttpClientFactory.CONFIG_CLIENT),
+        return new ApiServiceFactory(factory.getClient(OkHttpClientFactory.STANDARD_CLIENT),
                 properties.getProperty(PropertiesLoader.API_BASE_URL));
     }
 }

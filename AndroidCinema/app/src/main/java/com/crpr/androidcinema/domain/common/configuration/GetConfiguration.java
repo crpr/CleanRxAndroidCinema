@@ -1,6 +1,6 @@
 package com.crpr.androidcinema.domain.common.configuration;
 
-import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
+import com.crpr.androidcinema.data.api.models.ApiConfiguration;
 import com.crpr.androidcinema.domain.common.Result;
 
 import rx.Observable;

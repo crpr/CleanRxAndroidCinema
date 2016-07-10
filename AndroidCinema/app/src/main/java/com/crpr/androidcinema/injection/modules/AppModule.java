@@ -3,7 +3,12 @@ package com.crpr.androidcinema.injection.modules;
 import android.app.Application;
 import android.content.Context;
 
+import com.crpr.androidcinema.data.api.deserializers.ApiResponseDeserializer;
+import com.crpr.androidcinema.data.api.models.ApiMovie;
+import com.crpr.androidcinema.data.api.responses.ApiResponse;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -35,7 +40,9 @@ public class AppModule {
     @Provides
     @Singleton
     public Gson provideGson(){
-        return new Gson();
+        return new GsonBuilder()
+                .registerTypeAdapter(new TypeToken<ApiResponse<ApiMovie>>(){}.getType(),
+                        new ApiResponseDeserializer<ApiMovie>()).create();
     }
 
     @Provides

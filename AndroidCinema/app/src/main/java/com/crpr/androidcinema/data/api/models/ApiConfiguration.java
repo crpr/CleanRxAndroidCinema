@@ -1,6 +1,6 @@
-package com.crpr.androidcinema.data.api.models.configuration;
+package com.crpr.androidcinema.data.api.models;
 
-import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
+import com.crpr.androidcinema.data.api.models.enums.Size;
 
 import java.io.Serializable;
 import java.util.ArrayList;

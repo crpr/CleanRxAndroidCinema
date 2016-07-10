@@ -2,7 +2,7 @@ package com.crpr.androidcinema.data.api.services;
 
 import com.crpr.androidcinema.base.BaseTest;
 import com.crpr.androidcinema.base.ResourceFiles;
-import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
+import com.crpr.androidcinema.data.api.models.ApiConfiguration;
 
 import org.junit.Before;
 import org.junit.Test;

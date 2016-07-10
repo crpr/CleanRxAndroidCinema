@@ -12,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
 /**
  * Created by claudioribeiro on 10/07/16.
@@ -32,7 +31,7 @@ public class OkHttpClientFactoryTest {
 
         assertThat(factory, notNullValue());
 
-        OkHttpClient okHttpClient = factory.getClient(OkHttpClientFactory.CONFIG_CLIENT);
+        OkHttpClient okHttpClient = factory.getClient(OkHttpClientFactory.STANDARD_CLIENT);
 
         assertThat(okHttpClient, notNullValue());
         verify(interceptorsFactory, times(1)).get(InterceptorsFactory.AUTH);

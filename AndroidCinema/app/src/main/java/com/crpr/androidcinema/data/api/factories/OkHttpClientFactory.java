@@ -9,7 +9,7 @@ import okhttp3.OkHttpClient;
  */
 public class OkHttpClientFactory {
 
-    public static final int CONFIG_CLIENT = 1;
+    public static final int STANDARD_CLIENT = 1;
 
     private final InterceptorsFactory _factory;
 
@@ -24,7 +24,7 @@ public class OkHttpClientFactory {
         builder.readTimeout(30, TimeUnit.SECONDS);
 
         switch (type){
-            case CONFIG_CLIENT:
+            case STANDARD_CLIENT:
                 builder.addNetworkInterceptor(_factory.get(InterceptorsFactory.LOG));
                 builder.addNetworkInterceptor(_factory.get(InterceptorsFactory.AUTH));
                 builder.addInterceptor(_factory.get(InterceptorsFactory.HTTP));

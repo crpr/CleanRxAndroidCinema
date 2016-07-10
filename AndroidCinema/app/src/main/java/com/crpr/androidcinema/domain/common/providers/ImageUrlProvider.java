@@ -1,7 +1,7 @@
 package com.crpr.androidcinema.domain.common.providers;
 
-import com.crpr.androidcinema.data.api.models.configuration.ApiConfiguration;
-import com.crpr.androidcinema.data.api.models.configuration.enums.Size;
+import com.crpr.androidcinema.data.api.models.ApiConfiguration;
+import com.crpr.androidcinema.data.api.models.enums.Size;
 import com.crpr.androidcinema.domain.common.configuration.ConfigurationModel;
 
 import java.util.HashMap;

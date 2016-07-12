@@ -19,7 +19,7 @@ public class ApiConfigurationService implements GetConfiguration.Service{
     private final ServiceClient _client;
 
     public ApiConfigurationService(ServiceClient client){
-        _client = client;
+        this._client = client;
     }
 
     public Observable<ApiConfiguration> getConfiguration(){

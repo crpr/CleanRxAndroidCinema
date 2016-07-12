@@ -22,7 +22,8 @@ public class InterceptorsFactory {
     Provider<AuthInterceptor> _authProvider;
     Provider<HttpLoggingInterceptor> _httpInterceptor;
 
-    public InterceptorsFactory(Provider<LogInterceptor> logProvider, Provider<AuthInterceptor> authProvider,
+    public InterceptorsFactory(Provider<LogInterceptor> logProvider,
+                               Provider<AuthInterceptor> authProvider,
                                Provider<HttpLoggingInterceptor> httpProvider){
         this._logProvider = logProvider;
         this._authProvider = authProvider;

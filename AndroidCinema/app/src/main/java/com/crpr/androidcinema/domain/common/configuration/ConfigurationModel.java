@@ -31,10 +31,6 @@ public class ConfigurationModel {
         return urls;
     }
 
-    public interface IBaseUrl {
-        ISecureUrl url(String url);
-    }
-
     public interface ISecureUrl {
         IUrls secureUrl(String url);
     }
@@ -51,7 +47,7 @@ public class ConfigurationModel {
         return new ConfigurationModel.Builder(url);
     }
 
-    private static class Builder implements IBaseUrl, ISecureUrl, IUrls, IBuild {
+    private static class Builder implements ISecureUrl, IUrls, IBuild {
 
         private ConfigurationModel instance = new ConfigurationModel();
 
@@ -62,12 +58,6 @@ public class ConfigurationModel {
         @Override
         public ConfigurationModel build() {
             return instance;
-        }
-
-        @Override
-        public ISecureUrl url(String url) {
-            instance.base_url = url;
-            return this;
         }
 
         @Override

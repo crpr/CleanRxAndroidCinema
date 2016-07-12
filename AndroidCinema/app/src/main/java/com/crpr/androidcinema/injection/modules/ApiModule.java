@@ -9,6 +9,7 @@ import com.crpr.androidcinema.data.api.factories.OkHttpClientFactory;
 import com.crpr.androidcinema.data.api.interceptors.AuthInterceptor;
 import com.crpr.androidcinema.data.api.interceptors.LogInterceptor;
 
+import javax.inject.Provider;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -48,8 +49,10 @@ public class ApiModule {
 
     @Provides
     @Singleton
-    InterceptorsFactory provideInterceptorsFactory(Context context){
-        return new InterceptorsFactory(context);
+    InterceptorsFactory provideInterceptorsFactory(Provider<LogInterceptor> logProvider,
+                                                   Provider<AuthInterceptor> authProvider,
+                                                   Provider<HttpLoggingInterceptor> httpProvider){
+        return new InterceptorsFactory(logProvider, authProvider, httpProvider);
     }
 
     @Provides

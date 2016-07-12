@@ -1,13 +1,9 @@
 package com.crpr.androidcinema.data.api.factories;
 
-import android.content.Context;
-
 import com.crpr.androidcinema.BuildConfig;
-import com.crpr.androidcinema.CinemaApp;
 import com.crpr.androidcinema.data.api.interceptors.AuthInterceptor;
 import com.crpr.androidcinema.data.api.interceptors.LogInterceptor;
 
-import javax.inject.Inject;
 import javax.inject.Provider;
 
 import okhttp3.Interceptor;
@@ -22,17 +18,15 @@ public class InterceptorsFactory {
     public static final int AUTH = 1;
     public static final int HTTP = 2;
 
-    @Inject
     Provider<LogInterceptor> _logProvider;
-
-    @Inject
     Provider<AuthInterceptor> _authProvider;
-
-    @Inject
     Provider<HttpLoggingInterceptor> _httpInterceptor;
 
-    public InterceptorsFactory(Context context){
-        ((CinemaApp)context.getApplicationContext()).component().inject(this);
+    public InterceptorsFactory(Provider<LogInterceptor> logProvider, Provider<AuthInterceptor> authProvider,
+                               Provider<HttpLoggingInterceptor> httpProvider){
+        this._logProvider = logProvider;
+        this._authProvider = authProvider;
+        this._httpInterceptor = httpProvider;
     }
 
     public Interceptor get(int type){

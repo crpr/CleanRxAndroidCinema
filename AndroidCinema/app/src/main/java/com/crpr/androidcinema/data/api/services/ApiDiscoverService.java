@@ -13,7 +13,7 @@ import rx.Observable;
 public class ApiDiscoverService implements Discover.Service {
 
     public interface ServiceClient {
-        @GET("discover/movies")
+        @GET("discover/movie")
         Observable<ApiResponse<ApiMovie>> discoverMovies();
     }
 

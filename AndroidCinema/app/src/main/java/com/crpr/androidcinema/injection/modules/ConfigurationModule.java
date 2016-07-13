@@ -9,6 +9,7 @@ import com.crpr.androidcinema.domain.common.configuration.GetConfigurationProces
 import com.crpr.androidcinema.presentation.splash.SplashPresenter;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -28,6 +29,7 @@ public class ConfigurationModule {
 
     /************************* SERVICE *******************************/
     @Provides
+    @Singleton
     GetConfiguration.Service provideApiConfigurationService(ApiServiceFactory factory){
         return new ApiConfigurationService(factory.getServiceClient(ApiConfigurationService.ServiceClient.class));
     }

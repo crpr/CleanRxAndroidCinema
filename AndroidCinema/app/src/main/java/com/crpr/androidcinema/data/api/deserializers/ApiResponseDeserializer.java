@@ -21,8 +21,8 @@ public class ApiResponseDeserializer<T> implements JsonDeserializer<ApiResponse<
 
         ApiResponse<T> response = new ApiResponse<>();
         response.setPage(je.getAsJsonObject().get("page").getAsInt());
-        response.setPage(je.getAsJsonObject().get("total_pages").getAsInt());
-        response.setPage(je.getAsJsonObject().get("total_results").getAsInt());
+        response.setTotalPages(je.getAsJsonObject().get("total_pages").getAsInt());
+        response.setTotalResults(je.getAsJsonObject().get("total_results").getAsInt());
 
         JsonArray results = je.getAsJsonObject().get("results").getAsJsonArray();
         List<T> rvalueList = new ArrayList<>(results.getAsJsonArray().size());

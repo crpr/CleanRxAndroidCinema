@@ -72,4 +72,12 @@ public class ApiMovie implements Serializable {
     public boolean hasVideo() {
         return video;
     }
+
+    public double getVoteAverage() {
+        return vote_average;
+    }
+
+    public int getVoteCount() {
+        return vote_count;
+    }
 }

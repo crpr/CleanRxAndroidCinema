@@ -4,6 +4,8 @@ import com.crpr.androidcinema.data.api.factories.ApiServiceFactory;
 import com.crpr.androidcinema.data.api.services.ApiDiscoverService;
 import com.crpr.androidcinema.domain.discover.Discover;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -15,6 +17,7 @@ public class DiscoverModule {
 
     /************************* SERVICE *******************************/
     @Provides
+    @Singleton
     Discover.Service provideApiDiscoverService(ApiServiceFactory factory){
         return new ApiDiscoverService(factory.getServiceClient(ApiDiscoverService.ServiceClient.class));
     }

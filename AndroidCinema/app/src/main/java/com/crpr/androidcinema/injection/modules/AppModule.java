@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.crpr.androidcinema.data.api.deserializers.ApiResponseDeserializer;
+import com.crpr.androidcinema.data.api.factories.GsonFactory;
 import com.crpr.androidcinema.data.api.models.ApiMovie;
 import com.crpr.androidcinema.data.api.responses.ApiResponse;
 import com.google.gson.Gson;
@@ -40,9 +41,7 @@ public class AppModule {
     @Provides
     @Singleton
     public Gson provideGson(){
-        return new GsonBuilder()
-                .registerTypeAdapter(new TypeToken<ApiResponse<ApiMovie>>(){}.getType(),
-                        new ApiResponseDeserializer<ApiMovie>()).create();
+        return new GsonFactory().get(GsonFactory.SERIALIZER);
     }
 
     @Provides

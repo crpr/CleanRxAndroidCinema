@@ -3,6 +3,8 @@ package com.crpr.androidcinema.domain.discover;
 import com.crpr.androidcinema.data.api.models.ApiMovie;
 import com.crpr.androidcinema.data.api.responses.ApiResponse;
 
+import java.util.List;
+
 import rx.Observable;
 
 /**
@@ -10,8 +12,12 @@ import rx.Observable;
  */
 public interface Discover {
 
-    interface Process {
+    interface Interactor {
+        Observable<DiscoverMovieListResult> discoverMovies();
+    }
 
+    interface Process {
+        Observable<DiscoverMovieListResult> discoverMovies();
     }
 
     interface Service {

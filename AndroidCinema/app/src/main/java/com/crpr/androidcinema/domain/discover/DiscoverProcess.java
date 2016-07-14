@@ -2,10 +2,9 @@ package com.crpr.androidcinema.domain.discover;
 
 import com.crpr.androidcinema.data.api.models.ApiMovie;
 import com.crpr.androidcinema.data.api.responses.ApiResponse;
+import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.common.viewmodels.ListConverter;
 import com.crpr.androidcinema.domain.common.viewmodels.converters.ApiListMovieConverter;
-
-import java.util.List;
 
 import rx.Observable;
 
@@ -22,17 +21,18 @@ public class DiscoverProcess implements Discover.Process {
         this._converter = converter;
     }
 
-    public Observable<List<ListMovieModel>> discoverMovies(){
+    public Observable<DiscoverMovieListResult> discoverMovies(){
         return _service.discoverMovies()
                 .flatMap(this::processResponse);
     }
 
-    private Observable<List<ListMovieModel>> processResponse(ApiResponse<ApiMovie> response){
+    private Observable<DiscoverMovieListResult> processResponse(ApiResponse<ApiMovie> response){
         return Observable.just(convert(response));
     }
 
-    private List<ListMovieModel> convert(ApiResponse<ApiMovie> response) {
-        return ListConverter.map(response.getResults(), _converter);
+    private DiscoverMovieListResult convert(ApiResponse<ApiMovie> response) {
+        return new DiscoverMovieListResult(Result.OK,
+                ListConverter.map(response.getResults(), _converter));
     }
 
 }

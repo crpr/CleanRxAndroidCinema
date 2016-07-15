@@ -14,7 +14,6 @@ public interface Splash {
 
     interface View extends Base.View {
         void goToNextActivity();
-        void showError(String message);
     }
 
     interface Presenter extends Base.Presenter {

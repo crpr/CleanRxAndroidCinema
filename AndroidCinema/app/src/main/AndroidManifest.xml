@@ -18,12 +18,12 @@
         <activity android:name=".presentation.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".presentation.welcome_wizard.WelcomeWizardActivity" />
-
+        <activity android:name=".presentation.discover.DiscoverActivity" />
     </application>
 
 </manifest>

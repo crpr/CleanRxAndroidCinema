@@ -85,4 +85,9 @@ public class WelcomeWizardActivity extends PagerActivity implements WelcomeWizar
     public void userIsDone() {
         _navigator.navigate(this);
     }
+
+    @Override
+    public void showError(String message) {
+        //unused
+    }
 }

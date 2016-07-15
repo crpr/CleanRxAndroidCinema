@@ -1,7 +1,7 @@
 package com.crpr.androidcinema.presentation.splash;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.crpr.androidcinema.CinemaApp;

@@ -8,7 +8,6 @@ import com.crpr.androidcinema.presentation.welcome_wizard.fragments.DefaultSlide
 import java.util.List;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 

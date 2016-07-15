@@ -2,7 +2,6 @@ package com.crpr.androidcinema.injection.modules;
 
 import android.content.Context;
 
-import com.crpr.androidcinema.data.preferences.AppPreferences;
 import com.crpr.androidcinema.data.preferences.PreferencesService;
 import com.crpr.androidcinema.domain.common.configuration.GetConfiguration;
 import com.crpr.androidcinema.domain.splash.Splash;

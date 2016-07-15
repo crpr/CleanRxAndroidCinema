@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
 
 import com.crpr.androidcinema.domain.splash.Splash;
-import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizard;
 import com.crpr.androidcinema.presentation.welcome_wizard.WelcomeWizardActivity;
 
 /**

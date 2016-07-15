@@ -1,7 +1,5 @@
 package com.crpr.androidcinema.injection.modules;
 
-import android.content.Context;
-
 import com.crpr.androidcinema.common.properties.PropertiesLoader;
 import com.crpr.androidcinema.data.api.factories.ApiServiceFactory;
 import com.crpr.androidcinema.data.api.factories.InterceptorsFactory;

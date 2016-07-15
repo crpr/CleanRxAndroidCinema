@@ -5,7 +5,9 @@ package com.crpr.androidcinema.presentation.common;
  */
 public interface Base {
 
-    interface View {}
+    interface View {
+        void showError(String message);
+    }
 
     interface Presenter {
         void onError(Throwable throwable);

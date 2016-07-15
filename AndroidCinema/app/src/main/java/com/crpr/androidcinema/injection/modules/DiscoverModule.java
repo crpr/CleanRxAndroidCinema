@@ -6,6 +6,7 @@ import com.crpr.androidcinema.domain.common.viewmodels.converters.ApiListMovieCo
 import com.crpr.androidcinema.domain.discover.Discover;
 import com.crpr.androidcinema.domain.discover.DiscoverInteractor;
 import com.crpr.androidcinema.domain.discover.DiscoverProcess;
+import com.crpr.androidcinema.presentation.discover.DiscoverPresenter;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -19,6 +20,12 @@ import rx.Scheduler;
  */
 @Module
 public class DiscoverModule {
+
+    /************************* PRESENTER *******************************/
+    @Provides
+    Discover.Presenter provideDiscoverPresenter(Discover.Interactor interactor){
+        return new DiscoverPresenter(interactor);
+    }
 
     /************************* PROCESS *******************************/
     @Provides

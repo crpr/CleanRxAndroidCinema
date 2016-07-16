@@ -7,7 +7,13 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ThemeToolbarDarkOverflow" parent="Cinema">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
 </resources>

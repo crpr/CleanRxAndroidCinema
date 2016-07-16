@@ -14,7 +14,7 @@ public class ApiListMovieConverter implements Converter<ListMovieModel, ApiMovie
 
     @Override
     public ListMovieModel map(ApiMovie parseObject) {
-        String url = ImageUrlProvider.sharedInstance().getUrlFor(ConfigurationModel.POSTER, Size.W300);
+        String url = ImageUrlProvider.sharedInstance().getUrlFor(ConfigurationModel.POSTER, Size.W342);
 
         if(url != null){
             url += parseObject.getPosterPath();

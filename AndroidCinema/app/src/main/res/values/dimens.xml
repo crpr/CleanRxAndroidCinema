@@ -1,7 +1,10 @@
 <resources>
 
-    <!-- element height -->
-
+    <!-- adapters -->
+    <dimen name="item_height">100dp</dimen>
+    <dimen name="image_width">100dp</dimen>
+    <dimen name="item_title_row_height">40sp</dimen>
+    <dimen name="item_text_row_height">25sp</dimen>
 
     <!-- spacing -->
     <dimen name="spacing_huge">32dp</dimen>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.discover.DiscoverActivity"
-    android:background="@color/primary_dark"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <include
@@ -17,7 +17,10 @@
         android:layout_width="match_parent"
         android:clipToPadding="false"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingBottom="20dp" />
+        android:layout_marginStart="@dimen/spacing_tiny"
+        android:layout_marginEnd="@dimen/spacing_none"
+        android:paddingBottom="@dimen/spacing_tiny"
+        android:paddingTop="@dimen/spacing_tiny"
+        android:layout_weight="1" />
 
 </LinearLayout>

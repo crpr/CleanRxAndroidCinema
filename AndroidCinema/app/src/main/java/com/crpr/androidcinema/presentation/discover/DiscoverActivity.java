@@ -2,6 +2,7 @@ package com.crpr.androidcinema.presentation.discover;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -69,7 +70,7 @@ public class DiscoverActivity extends AppCompatActivity implements Discover.View
         setContentView(R.layout.activity_discover);
         ButterKnife.bind(this);
 
-        _discoverList.setLayoutManager(new LinearLayoutManager(this));
+        _discoverList.setLayoutManager(new GridLayoutManager(this, 2));
         _discoverList.setHasFixedSize(true);
     }
 

@@ -57,10 +57,10 @@ public class ConfigurationProcessTest extends BaseTest<ApiConfiguration>{
                                 configuration.getImagesConfiguration().getLogoSizes().get(4).raw();
 
         assertEquals(expectedUrl, ImageUrlProvider.sharedInstance()
-                                        .getUrlFor(ConfigurationModel.LOGO, Size.W300));
+                                        .getUrlFor(Size.W300));
 
         assertThat(ImageUrlProvider.sharedInstance()
-                .getUrlFor(ConfigurationModel.LOGO, Size.W1280), nullValue());
+                .getUrlFor(Size.W1280), nullValue());
     }
 
 }

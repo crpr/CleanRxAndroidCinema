@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class ListMovieModel implements Serializable {
 
     private int id;
-    private String poster_path;
+    private String image_path;
     private double popularity;
     private String title;
     private double vote_average;
@@ -19,8 +19,8 @@ public class ListMovieModel implements Serializable {
         return id;
     }
 
-    public String getPosterPath() {
-        return poster_path;
+    public String getImagePath() {
+        return image_path;
     }
 
     public double getPopularity() {
@@ -36,11 +36,11 @@ public class ListMovieModel implements Serializable {
     }
 
     public interface ITitle {
-        IPosterPath title(String title);
+        IImagePath title(String title);
     }
 
-    public interface IPosterPath {
-        IPopularity posterPath(String url);
+    public interface IImagePath {
+        IPopularity imagePath(String url);
     }
 
     public interface IPopularity {
@@ -59,7 +59,7 @@ public class ListMovieModel implements Serializable {
         return new ListMovieModel.Builder(id);
     }
 
-    private static class Builder implements ITitle, IPosterPath, IPopularity, IVoteAverage, IBuild {
+    private static class Builder implements ITitle, IImagePath, IPopularity, IVoteAverage, IBuild {
 
         private ListMovieModel instance = new ListMovieModel();
 
@@ -79,13 +79,13 @@ public class ListMovieModel implements Serializable {
         }
 
         @Override
-        public IPopularity posterPath(String url) {
-            instance.poster_path = url;
+        public IPopularity imagePath(String url) {
+            instance.image_path = url;
             return this;
         }
 
         @Override
-        public IPosterPath title(String title) {
+        public IImagePath title(String title) {
             instance.title = title;
             return this;
         }

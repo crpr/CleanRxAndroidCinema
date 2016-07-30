@@ -16,4 +16,17 @@
         <item name="android:textColorSecondary">@color/white</item>
     </style>
 
+    <style name="ImageGridItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">180dp</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_tiny</item>
+        <item name="android:layout_marginTop">@dimen/spacing_tiny</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="ImageGridThumb">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/default_thumb_item_height</item>
+    </style>
+
 </resources>

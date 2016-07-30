@@ -30,19 +30,10 @@ public class ConfigurationModelTest extends BaseTest<ApiConfiguration>{
         ConfigurationModel model = ConfigurationModel
                 .url(configuration.getImagesConfiguration().getBaseUrl())
                 .secureUrl(configuration.getImagesConfiguration().getSecureBaseUrl())
-                .mapUrls(ImageUrlProvider.buildUrlsMap(configuration.getImagesConfiguration()))
                 .build();
 
         assertThat(model, notNullValue());
         assertEquals(model.getBaseUrl(), configuration.getImagesConfiguration().getBaseUrl());
         assertEquals(model.getSecureBaseUrl(), configuration.getImagesConfiguration().getSecureBaseUrl());
-
-        int total = configuration.getImagesConfiguration().getBackdropSizes().size() +
-                configuration.getImagesConfiguration().getLogoSizes().size() +
-                configuration.getImagesConfiguration().getPosterSizes().size() +
-                configuration.getImagesConfiguration().getProfileSizes().size() +
-                configuration.getImagesConfiguration().getStillSizes().size();
-
-        assertEquals(model.getUrls().size(), total);
     }
 }

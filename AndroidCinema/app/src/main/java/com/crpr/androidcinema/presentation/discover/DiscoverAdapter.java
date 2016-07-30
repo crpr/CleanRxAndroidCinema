@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.crpr.androidcinema.R;
 import com.crpr.androidcinema.domain.discover.ListMovieModel;
 import com.crpr.androidcinema.presentation.common.listeners.RecyclerItemTouchListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,10 +82,10 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.Discov
             this.title.setText(model.getTitle());
             this.rating.setText(String.valueOf(model.getVoteAverage()));
 
-            Glide.with(context)
-                    .load(model.getPosterPath())
-                    .fitCenter()
-                    .crossFade()
+            Picasso.with(context)
+                    .load(model.getImagePath())
+                    .fit()
+                    .centerCrop()
                     .into(this.poster);
         }
     }

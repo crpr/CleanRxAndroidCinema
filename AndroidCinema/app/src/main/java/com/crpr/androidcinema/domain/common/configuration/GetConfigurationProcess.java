@@ -28,7 +28,6 @@ public class GetConfigurationProcess implements GetConfiguration.Process {
         ConfigurationModel model = ConfigurationModel
                                     .url(configuration.getImagesConfiguration().getBaseUrl())
                                     .secureUrl(configuration.getImagesConfiguration().getSecureBaseUrl())
-                                    .mapUrls(ImageUrlProvider.buildUrlsMap(configuration.getImagesConfiguration()))
                                     .build();
 
         if(model == null){

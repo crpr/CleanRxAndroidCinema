@@ -15,7 +15,6 @@ public class ConfigurationModel {
 
     private String base_url;
     private String secure_base_url;
-    private Map<String, String> urls;
 
     private ConfigurationModel(){}
 
@@ -27,16 +26,8 @@ public class ConfigurationModel {
         return secure_base_url;
     }
 
-    public Map<String, String> getUrls() {
-        return urls;
-    }
-
     public interface ISecureUrl {
-        IUrls secureUrl(String url);
-    }
-
-    public interface IUrls {
-        IBuild mapUrls(Map<String,String> urls);
+        IBuild secureUrl(String url);
     }
 
     public interface IBuild {
@@ -47,7 +38,7 @@ public class ConfigurationModel {
         return new ConfigurationModel.Builder(url);
     }
 
-    private static class Builder implements ISecureUrl, IUrls, IBuild {
+    private static class Builder implements ISecureUrl, IBuild {
 
         private ConfigurationModel instance = new ConfigurationModel();
 
@@ -61,14 +52,8 @@ public class ConfigurationModel {
         }
 
         @Override
-        public IUrls secureUrl(String url) {
+        public IBuild secureUrl(String url) {
             instance.secure_base_url = url;
-            return this;
-        }
-
-        @Override
-        public IBuild mapUrls(Map<String, String> urls) {
-            instance.urls = urls;
             return this;
         }
     }

@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by claudioribeiro on 10/07/16.
  */
-public class ApiConfigurationTest extends BaseTest<ApiConfiguration>{
+public class ApiConfigurationTest extends BaseTest{
 
     ApiConfiguration configuration;
 

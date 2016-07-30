@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by claudioribeiro on 12/07/16.
  */
-public class ApiDiscoverServiceTest extends BaseTest<ApiMovie> {
+public class ApiDiscoverServiceTest extends BaseTest {
 
     private ApiDiscoverService.ServiceClient client;
     private ApiDiscoverService service;

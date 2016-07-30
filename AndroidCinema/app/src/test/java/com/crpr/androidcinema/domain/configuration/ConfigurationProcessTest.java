@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by claudioribeiro on 10/07/16.
  */
-public class ConfigurationProcessTest extends BaseTest<ApiConfiguration>{
+public class ConfigurationProcessTest extends BaseTest{
 
     private ApiConfiguration configuration;
     private GetConfiguration.Service service;
@@ -58,9 +58,6 @@ public class ConfigurationProcessTest extends BaseTest<ApiConfiguration>{
 
         assertEquals(expectedUrl, ImageUrlProvider.sharedInstance()
                                         .getUrlFor(Size.W300));
-
-        assertThat(ImageUrlProvider.sharedInstance()
-                .getUrlFor(Size.W1280), nullValue());
     }
 
 }

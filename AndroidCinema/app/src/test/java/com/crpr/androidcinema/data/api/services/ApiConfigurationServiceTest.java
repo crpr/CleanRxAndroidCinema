@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by claudioribeiro on 10/07/16.
  */
-public class ApiConfigurationServiceTest extends BaseTest<ApiConfiguration>{
+public class ApiConfigurationServiceTest extends BaseTest{
 
     private ApiConfigurationService.ServiceClient client;
     private ApiConfigurationService service;

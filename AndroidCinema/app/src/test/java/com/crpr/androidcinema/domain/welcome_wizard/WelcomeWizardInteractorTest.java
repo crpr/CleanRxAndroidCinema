@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
  */
 public class WelcomeWizardInteractorTest {
 
-    private WelcomeWizardInteractor interactor;
+    private WelcomeWizard.Interactor interactor;
     private WelcomeWizard.Process process;
 
     @Before

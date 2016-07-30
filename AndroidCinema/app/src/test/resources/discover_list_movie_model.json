@@ -1,0 +1,21 @@
+[
+  {
+    "id":131631,
+    "image_path":"/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+    "popularity":12.730425,
+    "title":"The Hunger Games: Mockingjay - Part 1",
+    "vote_average":7.0
+  },{
+    "id":131632,
+    "image_path":"/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+    "popularity":12.0425,
+    "title":"The Hunger Games: Mockingjay - Part 2",
+    "vote_average":8.0
+  },{
+    "id":131633,
+    "image_path":"/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+    "popularity":15.725,
+    "title":"The Hunger Games: Mockingjay - Part 3",
+    "vote_average":7.1
+  }
+]

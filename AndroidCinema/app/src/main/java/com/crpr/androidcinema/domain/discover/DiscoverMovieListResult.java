@@ -11,14 +11,6 @@ public class DiscoverMovieListResult extends Result {
 
     private List<ListMovieModel> _models;
 
-    public DiscoverMovieListResult(int statusCode){
-        super(statusCode);
-    }
-
-    public DiscoverMovieListResult(int statusCode, String message) {
-        super(statusCode, message);
-    }
-
     public DiscoverMovieListResult(int statusCode, List<ListMovieModel> models) {
         super(statusCode);
         this._models = models;

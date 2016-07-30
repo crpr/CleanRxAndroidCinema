@@ -30,7 +30,7 @@ public class ApiDiscoverServiceTest extends BaseTest {
     @Before
     public void setup(){
         client = Mockito.mock(ApiDiscoverService.ServiceClient.class);
-        mockResponse = loadResponseResource(ResourceFiles.API_MOVIE_RESPONSE, new TypeToken<ApiResponse<ApiMovie>>() {});
+        mockResponse = loadResourceFromType(ResourceFiles.API_MOVIE_RESPONSE, new TypeToken<ApiResponse<ApiMovie>>() {});
         service = new ApiDiscoverService(client);
     }
 

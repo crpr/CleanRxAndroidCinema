@@ -30,7 +30,7 @@ public class ConfigurationProcessTest extends BaseTest{
 
     private ApiConfiguration configuration;
     private GetConfiguration.Service service;
-    private GetConfigurationProcess process;
+    private GetConfiguration.Process process;
 
     @Before
     public void setup(){

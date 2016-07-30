@@ -6,4 +6,6 @@ package com.crpr.androidcinema.base;
 public class ResourceFiles {
     public static final String API_CONFIGURATION = "api_configuration_model.json";
     public static final String API_MOVIE_RESPONSE = "discover_movie_response.json";
+    public static final String API_MOVIE = "discover_movie.json";
+    public static final String LIST_MOVIE_MODEL = "discover_list_movie_model.json";
 }

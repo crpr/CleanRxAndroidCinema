@@ -19,7 +19,7 @@ public class BaseTest {
         return new GsonFactory().get(GsonFactory.SERIALIZER).fromJson(reader, klass);
     }
 
-    public <T> ApiResponse<T> loadResponseResource(String name, TypeToken typeToken){
+    public <T> T loadResourceFromType(String name, TypeToken typeToken){
         final InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(name);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         return new GsonFactory().get(GsonFactory.SERIALIZER).fromJson(reader, typeToken.getType());

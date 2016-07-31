@@ -1,5 +1,6 @@
 package com.crpr.androidcinema.presentation.splash;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -65,8 +66,8 @@ public class SplashActivity extends AppCompatActivity implements Splash.View {
     }
 
     @Override
-    public void goToNextActivity() {
-        _navigator.navigate(this);
+    public void goToNextActivity(Class<?> klass) {
+        _navigator.navigate(this, klass);
     }
 
     @Override

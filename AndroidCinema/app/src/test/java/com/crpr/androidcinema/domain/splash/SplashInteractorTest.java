@@ -36,7 +36,7 @@ public class SplashInteractorTest {
         when(process.getConfiguration()).thenReturn(observable);
 
         TestSubscriber<Result> testSubscriber = new TestSubscriber<>();
-        interactor.getConfiguration().subscribe(testSubscriber);
+        interactor.start().subscribe(testSubscriber);
 
         testSubscriber.assertNoErrors();
 

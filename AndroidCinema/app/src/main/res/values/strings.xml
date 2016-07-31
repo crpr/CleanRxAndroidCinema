@@ -2,6 +2,9 @@
     <string name="app_name">Android Cinema</string>
     <string name="environment">prod</string>
 
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
     <!-- WELCOME WIZARD -->
     <string name="ww_skip_btn_label">Skip</string>
     <string name="ww_done_btn_label">Done</string>
@@ -14,5 +17,10 @@
     <string name="welcome_wizard_slide_2_description">Detailed data about tv shows</string>
     <string name="welcome_wizard_slide_3_description">Create your favorites list. Create your favorites list. Create your favorites list. </string>
 
+    <!-- DRAWER -->
+    <string name="drawer_nav_discover">Discover</string>
+    <string name="drawer_nav_popular">Popular</string>
+    <string name="drawer_nav_top_rated">Top Rated</string>
+    <string name="drawer_nav_upcoming">Upcoming</string>
 
 </resources>

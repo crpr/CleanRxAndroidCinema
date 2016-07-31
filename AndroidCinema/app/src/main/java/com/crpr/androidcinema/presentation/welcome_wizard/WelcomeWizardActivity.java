@@ -43,7 +43,7 @@ public class WelcomeWizardActivity extends PagerActivity implements WelcomeWizar
 
     @Override
     protected void onSkipPressed() {
-        Toast.makeText(this, "Clicked Skip Button", Toast.LENGTH_SHORT).show();
+        _presenter.userIsDoneWithWelcomeWizard();
     }
 
     @Override

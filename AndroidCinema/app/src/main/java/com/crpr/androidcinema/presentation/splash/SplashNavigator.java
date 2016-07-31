@@ -12,8 +12,9 @@ import com.crpr.androidcinema.presentation.welcome_wizard.WelcomeWizardActivity;
  */
 public class SplashNavigator implements Splash.Navigator {
 
-    public void navigate(Activity activity){
-        Intent intent = new Intent(activity, WelcomeWizardActivity.class);
+    public void navigate(Activity activity, Class<?> klass){
+        Intent intent = new Intent(activity, klass);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         ActivityCompat.startActivity(activity, intent, null);
         activity.finish();

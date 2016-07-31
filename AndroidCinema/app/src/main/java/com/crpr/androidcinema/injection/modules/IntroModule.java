@@ -43,15 +43,16 @@ public class IntroModule {
     /************************* INTERACTOR *******************************/
     @Provides
     Splash.Interactor provideSplashInteractor(@Named("marvel_main_thread") Scheduler mainThread,
-                                                @Named("marvel_executor_thread") Scheduler executorThread,
-                                                GetConfiguration.Process process){
-        return new SplashInteractor(mainThread, executorThread, process);
+                                              @Named("marvel_executor_thread") Scheduler executorThread,
+                                              GetConfiguration.Process process,
+                                              WelcomeWizard.Process wwProcess){
+        return new SplashInteractor(mainThread, executorThread, process, wwProcess);
     }
 
     @Provides
     WelcomeWizard.Interactor provideWelcomeWizardInteractor(@Named("marvel_main_thread") Scheduler mainThread,
-                                                @Named("marvel_executor_thread") Scheduler executorThread,
-                                                WelcomeWizard.Process process){
+                                                            @Named("marvel_executor_thread") Scheduler executorThread,
+                                                            WelcomeWizard.Process process){
         return new WelcomeWizardInteractor(mainThread, executorThread, process);
     }
 

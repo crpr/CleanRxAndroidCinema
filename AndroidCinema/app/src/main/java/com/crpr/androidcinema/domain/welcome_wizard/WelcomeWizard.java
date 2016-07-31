@@ -31,6 +31,7 @@ public interface WelcomeWizard {
 
     interface Process {
         Observable<Boolean> updateWelcomeWizardDone(boolean isDone);
+        Observable<WelcomeWizardResult> checkWelcomeWizardDone();
     }
 
     interface Navigator {

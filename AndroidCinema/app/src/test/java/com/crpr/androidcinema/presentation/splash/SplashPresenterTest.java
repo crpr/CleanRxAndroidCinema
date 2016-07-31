@@ -36,12 +36,12 @@ public class SplashPresenterTest {
     public void getConfigurationTest(){
         Result rvalue = new Result(Result.OK);
         Observable<Result> observable = Observable.just(rvalue);
-        when(interactor.getConfiguration()).thenReturn(observable);
+        when(interactor.start()).thenReturn(observable);
 
         presenter.getConfiguration();
         presenter.onDestroy();
 
-        verify(interactor, times(1)).getConfiguration();
+        verify(interactor, times(1)).start();
         verify(view, times(1)).goToNextActivity();
     }
 
@@ -50,11 +50,11 @@ public class SplashPresenterTest {
         String errorMessage = "error message";
         Result rvalue = new Result(Result.ERROR, errorMessage);
         Observable<Result> observable = Observable.just(rvalue);
-        when(interactor.getConfiguration()).thenReturn(observable);
+        when(interactor.start()).thenReturn(observable);
 
         presenter.getConfiguration();
 
-        verify(interactor, times(1)).getConfiguration();
+        verify(interactor, times(1)).start();
         verify(view, times(0)).goToNextActivity();
         verify(view, times(1)).showError(errorMessage);
     }

@@ -1,6 +1,7 @@
 package com.crpr.androidcinema.domain.welcome_wizard;
 
 import com.crpr.androidcinema.data.preferences.PreferencesService;
+import com.crpr.androidcinema.domain.common.Result;
 
 import rx.Observable;
 
@@ -21,4 +22,7 @@ public class WelcomeWizardProcess implements WelcomeWizard.Process{
         return true;
     }
 
+    public Observable<WelcomeWizardResult> checkWelcomeWizardDone(){
+        return Observable.just(new WelcomeWizardResult(Result.OK, _prefsService.isWelcomeWizardDone()));
+    }
 }

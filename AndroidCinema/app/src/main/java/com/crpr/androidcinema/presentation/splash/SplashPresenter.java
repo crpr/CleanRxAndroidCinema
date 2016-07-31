@@ -2,8 +2,11 @@ package com.crpr.androidcinema.presentation.splash;
 
 import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.splash.Splash;
+import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizardResult;
 import com.crpr.androidcinema.presentation.common.Base;
 import com.crpr.androidcinema.presentation.common.Presenter;
+import com.crpr.androidcinema.presentation.root.RootActivity;
+import com.crpr.androidcinema.presentation.welcome_wizard.WelcomeWizardActivity;
 
 /**
  * Created by claudioribeiro on 09/07/16.
@@ -36,13 +39,13 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
         }
 
         _isMakingRequest = true;
-        _subscriptions.add(_interactor.getConfiguration()
+        _subscriptions.add(_interactor.start()
                             .subscribe(this::onReceiveResult,
                                     this::onError));
     }
 
     @Override
-    public final void onReceiveResult(Result result){
+    public final void onReceiveResult(WelcomeWizardResult result){
         _isMakingRequest = false;
 
         if(result.hasError()){
@@ -50,7 +53,8 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
             return;
         }
 
-        _view.goToNextActivity();
+        _view.goToNextActivity(result.isWelcomeWizardDone() ?
+                RootActivity.class : WelcomeWizardActivity.class);
     }
 
     public final void onError(Throwable throwable) {

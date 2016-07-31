@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.welcome_wizard.WelcomeWizardActivity" />
-        <activity android:name=".presentation.discover.DiscoverActivity" />
+        <activity android:name=".presentation.root.RootActivity"></activity>
     </application>
 
 </manifest>

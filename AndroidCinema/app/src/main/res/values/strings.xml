@@ -22,5 +22,7 @@
     <string name="drawer_nav_popular">Popular</string>
     <string name="drawer_nav_top_rated">Top Rated</string>
     <string name="drawer_nav_upcoming">Upcoming</string>
+    <string name="drawer_user_name">John Doe</string>
+    <string name="drawer_user_email">john_doe@who-knows.com</string>
 
 </resources>

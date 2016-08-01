@@ -2,6 +2,9 @@ package com.crpr.androidcinema.presentation.splash;
 
 import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.splash.Splash;
+import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizardResult;
+import com.crpr.androidcinema.presentation.root.RootActivity;
+import com.crpr.androidcinema.presentation.welcome_wizard.WelcomeWizardActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,28 +37,28 @@ public class SplashPresenterTest {
 
     @Test
     public void getConfigurationTest(){
-        Result rvalue = new Result(Result.OK);
-        Observable<Result> observable = Observable.just(rvalue);
+        WelcomeWizardResult rvalue = new WelcomeWizardResult(Result.OK, true);
+        Observable<WelcomeWizardResult> observable = Observable.just(rvalue);
         when(interactor.start()).thenReturn(observable);
 
         presenter.getConfiguration();
         presenter.onDestroy();
 
         verify(interactor, times(1)).start();
-        verify(view, times(1)).goToNextActivity();
+        verify(view, times(1)).goToNextActivity(RootActivity.class);
     }
 
     @Test
     public void getConfigurationErrorTest(){
         String errorMessage = "error message";
-        Result rvalue = new Result(Result.ERROR, errorMessage);
-        Observable<Result> observable = Observable.just(rvalue);
+        WelcomeWizardResult rvalue = new WelcomeWizardResult(Result.ERROR, errorMessage);
+        Observable<WelcomeWizardResult> observable = Observable.just(rvalue);
         when(interactor.start()).thenReturn(observable);
 
         presenter.getConfiguration();
 
         verify(interactor, times(1)).start();
-        verify(view, times(0)).goToNextActivity();
+        verify(view, times(0)).goToNextActivity(any());
         verify(view, times(1)).showError(errorMessage);
     }
 
@@ -64,7 +67,7 @@ public class SplashPresenterTest {
         String errorMessage = "sample error message";
         presenter.onError(new Throwable(errorMessage));
 
-        verify(view, times(0)).goToNextActivity();
+        verify(view, times(0)).goToNextActivity(any());
         verify(view, times(1)).showError(errorMessage);
     }
 }

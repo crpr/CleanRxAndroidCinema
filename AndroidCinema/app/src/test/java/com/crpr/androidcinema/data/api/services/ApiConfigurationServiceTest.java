@@ -13,6 +13,9 @@ import rx.observers.TestSubscriber;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -41,6 +44,10 @@ public class ApiConfigurationServiceTest extends BaseTest{
 
         testSubscriber.assertNoErrors();
         ApiConfiguration rvalue = testSubscriber.getOnNextEvents().get(0);
+
+        verify(client, times(1)).getConfiguration();
+        verifyNoMoreInteractions(client);
+
         assertThat(rvalue, notNullValue());
     }
 }

@@ -21,6 +21,9 @@ import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -50,6 +53,9 @@ public class ConfigurationProcessTest extends BaseTest{
 
         testSubscriber.assertNoErrors();
         Result result = testSubscriber.getOnNextEvents().get(0);
+
+        verify(service, times(1)).getConfiguration();
+        verifyNoMoreInteractions(service);
 
         assertThat(result, notNullValue());
 

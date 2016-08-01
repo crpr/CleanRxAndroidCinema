@@ -16,6 +16,10 @@ import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -44,6 +48,11 @@ public class InterceptorsFactoryTest {
 
         Interceptor result = factory.get(InterceptorsFactory.LOG);
 
+        verify(logProvider, times(1)).get();
+        verifyNoMoreInteractions(logProvider);
+        verifyZeroInteractions(authProvider);
+        verifyZeroInteractions(httpProvider);
+
         assertThat(result, notNullValue());
         assertEquals(result.getClass().getName(), LogInterceptor.class.getName());
     }
@@ -58,6 +67,11 @@ public class InterceptorsFactoryTest {
 
         Interceptor result = factory.get(InterceptorsFactory.AUTH);
 
+        verify(authProvider, times(1)).get();
+        verifyNoMoreInteractions(authProvider);
+        verifyZeroInteractions(logProvider);
+        verifyZeroInteractions(httpProvider);
+
         assertThat(result, notNullValue());
         assertEquals(result.getClass().getName(), AuthInterceptor.class.getName());
     }
@@ -69,6 +83,11 @@ public class InterceptorsFactoryTest {
         when(httpProvider.get()).thenReturn(rvalue);
 
         Interceptor result = factory.get(InterceptorsFactory.HTTP);
+
+        verify(httpProvider, times(1)).get();
+        verifyNoMoreInteractions(httpProvider);
+        verifyZeroInteractions(authProvider);
+        verifyZeroInteractions(logProvider);
 
         assertThat(result, notNullValue());
         assertEquals(result.getClass().getName(), HttpLoggingInterceptor.class.getName());

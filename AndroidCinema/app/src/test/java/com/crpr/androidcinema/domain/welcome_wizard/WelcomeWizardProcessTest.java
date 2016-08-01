@@ -11,17 +11,22 @@ import rx.observers.TestSubscriber;
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 /**
  * Created by claudioribeiro on 10/07/16.
  */
 public class WelcomeWizardProcessTest{
 
+    private PreferencesService preferencesService;
     private WelcomeWizardProcess process;
 
     @Before
     public void setup(){
-        process = new WelcomeWizardProcess(Mockito.mock(PreferencesService.class));
+        preferencesService = Mockito.mock(PreferencesService.class);
+        process = new WelcomeWizardProcess(preferencesService);
     }
 
     @Test
@@ -31,6 +36,9 @@ public class WelcomeWizardProcessTest{
 
         testSubscriber.assertNoErrors();
         Boolean result = testSubscriber.getOnNextEvents().get(0);
+
+        verify(preferencesService, times(1)).setWelcomeWizardDone(true);
+        verifyNoMoreInteractions(preferencesService);
 
         assertThat(result, notNullValue());
         assertEquals(result, Boolean.TRUE);

@@ -11,6 +11,9 @@ import rx.schedulers.Schedulers;
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -38,6 +41,9 @@ public class WelcomeWizardInteractorTest {
         testSubscriber.assertNoErrors();
 
         Boolean result = testSubscriber.getOnNextEvents().get(0);
+
+        verify(process, times(1)).updateWelcomeWizardDone(true);
+        verifyNoMoreInteractions(process);
 
         assertThat(result, notNullValue());
         assertEquals(result, Boolean.TRUE);

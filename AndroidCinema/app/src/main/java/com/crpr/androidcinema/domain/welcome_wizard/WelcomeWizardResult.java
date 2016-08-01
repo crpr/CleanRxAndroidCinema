@@ -14,6 +14,10 @@ public class WelcomeWizardResult extends Result {
         this.isWelcomeWizardDone = isWelcomeWizardDone;
     }
 
+    public WelcomeWizardResult(int statusCode, String errorMessage) {
+        super(statusCode, errorMessage);
+    }
+
     public boolean isWelcomeWizardDone(){
         return this.isWelcomeWizardDone;
     }

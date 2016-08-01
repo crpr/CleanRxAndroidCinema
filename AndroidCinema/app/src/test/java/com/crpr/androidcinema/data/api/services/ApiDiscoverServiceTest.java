@@ -16,6 +16,9 @@ import rx.observers.TestSubscriber;
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -44,6 +47,10 @@ public class ApiDiscoverServiceTest extends BaseTest {
 
         testSubscriber.assertNoErrors();
         ApiResponse<ApiMovie> rvalue = testSubscriber.getOnNextEvents().get(0);
+
+        verify(client, times(1)).discoverMovies();
+        verifyNoMoreInteractions(client);
+
         assertThat(rvalue, notNullValue());
         assertEquals(rvalue.getPage(), mockResponse.getPage());
         assertEquals(rvalue.getResults().size(), mockResponse.getResults().size());

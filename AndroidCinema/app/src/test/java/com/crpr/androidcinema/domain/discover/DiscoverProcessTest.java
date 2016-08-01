@@ -20,6 +20,9 @@ import rx.observers.TestSubscriber;
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -59,6 +62,9 @@ public class DiscoverProcessTest extends BaseTest{
         testSubscriber.assertNoErrors();
 
         DiscoverMovieListResult result = testSubscriber.getOnNextEvents().get(0);
+
+        verify(service, times(1)).discoverMovies();
+        verifyNoMoreInteractions(service);
 
         assertThat(result, notNullValue());
         assertEquals(mockResponse.getResults().size(), result.getMovies().size());

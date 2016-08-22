@@ -24,6 +24,10 @@
         <item name="android:background">@color/primary</item>
     </style>
 
+    <style name="TopImageGridItem" parent="ImageGridItem">
+        <item name="android:background">@color/primary_dark</item>
+    </style>
+
     <style name="ImageGridThumb">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/default_thumb_item_height</item>

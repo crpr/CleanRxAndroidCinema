@@ -16,4 +16,9 @@
         android:paddingBottom="@dimen/spacing_tiny"
         android:paddingTop="@dimen/spacing_tiny"/>
 
+    <include
+        android:id="@+id/no_connection_wrapper"
+        layout="@layout/layout_generic_no_connection"
+        android:visibility="gone"/>
+
 </RelativeLayout>

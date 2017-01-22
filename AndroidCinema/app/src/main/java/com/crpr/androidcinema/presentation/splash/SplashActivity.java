@@ -1,6 +1,5 @@
 package com.crpr.androidcinema.presentation.splash;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -73,5 +72,10 @@ public class SplashActivity extends AppCompatActivity implements Splash.View {
     @Override
     public void showError(String message) {
         Toast.makeText(this, "An error occured: " + message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showNoConnection() {
+
     }
 }

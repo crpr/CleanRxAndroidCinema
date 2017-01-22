@@ -2,7 +2,6 @@ package com.crpr.androidcinema.presentation.welcome_wizard;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
 
 import com.crpr.androidcinema.CinemaApp;
 import com.crpr.androidcinema.R;
@@ -89,5 +88,10 @@ public class WelcomeWizardActivity extends PagerActivity implements WelcomeWizar
     @Override
     public void showError(String message) {
         //unused
+    }
+
+    @Override
+    public void showNoConnection() {
+
     }
 }

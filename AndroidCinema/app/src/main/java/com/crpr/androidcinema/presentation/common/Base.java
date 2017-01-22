@@ -7,6 +7,7 @@ public interface Base {
 
     interface View {
         void showError(String message);
+        void showNoConnection();
     }
 
     interface Presenter {

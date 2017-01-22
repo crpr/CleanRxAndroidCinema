@@ -16,6 +16,10 @@ public class DiscoverMovieListResult extends Result {
         this._models = models;
     }
 
+    public DiscoverMovieListResult(int statusCode, String errorMessage) {
+        super(statusCode, errorMessage);
+    }
+
     public List<ListMovieModel> getMovies(){
         return _models;
     }

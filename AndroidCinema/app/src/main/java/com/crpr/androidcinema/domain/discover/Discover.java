@@ -15,6 +15,7 @@ public interface Discover {
 
     interface View extends Base.View{
         void showMovieList(List<ListMovieModel> models);
+        void showEmptyView();
     }
 
     interface Presenter extends Base.Presenter{

@@ -4,7 +4,6 @@ import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.splash.Splash;
 import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizardResult;
 import com.crpr.androidcinema.presentation.root.RootActivity;
-import com.crpr.androidcinema.presentation.welcome_wizard.WelcomeWizardActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +12,6 @@ import org.mockito.Mockito;
 import rx.Observable;
 
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -25,7 +23,7 @@ public class SplashPresenterTest {
 
     private Splash.Interactor interactor;
     private Splash.View view;
-    private SplashPresenter presenter;
+    private Splash.Presenter presenter;
 
     @Before
     public void setup(){

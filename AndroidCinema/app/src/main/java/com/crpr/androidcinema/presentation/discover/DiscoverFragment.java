@@ -8,12 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.crpr.androidcinema.CinemaApp;
 import com.crpr.androidcinema.R;
 import com.crpr.androidcinema.domain.discover.Discover;
 import com.crpr.androidcinema.domain.discover.ListMovieModel;
+import com.crpr.androidcinema.presentation.common.ConnectionUtils;
 import com.crpr.androidcinema.presentation.common.listeners.RecyclerItemTouchListener;
 
 import java.util.List;
@@ -35,6 +38,12 @@ public class DiscoverFragment extends Fragment implements Discover.View {
 
     @BindView(R.id.discover_list)
     RecyclerView _discoverList;
+
+    @BindView(R.id.no_connection_wrapper)
+    RelativeLayout _noConnectionWrapper;
+
+    @BindView(R.id.no_connection_action_button)
+    Button _retryActionButton;
 
     @Inject
     Discover.Presenter _presenter;
@@ -64,7 +73,13 @@ public class DiscoverFragment extends Fragment implements Discover.View {
 
     private void setupPresenter() {
         _presenter.bindView(this);
-        _presenter.discoverMovies();
+
+        if(ConnectionUtils.isConnectionAvailable(getActivity())) {
+            _presenter.discoverMovies();
+            return;
+        }
+
+        showNoConnection();
     }
 
     @Override
@@ -84,8 +99,10 @@ public class DiscoverFragment extends Fragment implements Discover.View {
 
     @Override
     public void showMovieList(List<ListMovieModel> models) {
+        _discoverList.setVisibility(View.VISIBLE);
+        _noConnectionWrapper.setVisibility(View.GONE);
+
         if(models == null){
-            setupEmptyView();
             return;
         }
 
@@ -97,13 +114,27 @@ public class DiscoverFragment extends Fragment implements Discover.View {
         _listAdapter.notifyDataSetChanged();
     }
 
-    private void setupEmptyView() {
-        Toast.makeText(getContext(), "Render empty page", Toast.LENGTH_LONG).show();
+    @Override
+    public void showEmptyView() {
+
     }
 
     @Override
     public void showError(String message) {
         Toast.makeText(getContext(), "An error occured: " + message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showNoConnection() {
+        _discoverList.setVisibility(View.GONE);
+        _noConnectionWrapper.setVisibility(View.VISIBLE);
+        _retryActionButton.setOnClickListener(view -> retryLoadMovies());
+    }
+
+    private void retryLoadMovies() {
+        _discoverList.setVisibility(View.VISIBLE);
+        _noConnectionWrapper.setVisibility(View.GONE);
+        _presenter.discoverMovies();
     }
 
     private RecyclerItemTouchListener itemTouchListener =

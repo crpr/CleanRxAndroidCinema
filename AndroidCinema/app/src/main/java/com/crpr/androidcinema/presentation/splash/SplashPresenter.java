@@ -1,6 +1,5 @@
 package com.crpr.androidcinema.presentation.splash;
 
-import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.splash.Splash;
 import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizardResult;
 import com.crpr.androidcinema.presentation.common.Base;

@@ -1,7 +1,5 @@
 package com.crpr.androidcinema.domain.common.configuration;
 
-import java.util.Map;
-
 /**
  * Created by claudioribeiro on 09/07/16.
  */

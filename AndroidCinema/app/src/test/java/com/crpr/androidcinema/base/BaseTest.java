@@ -16,12 +16,12 @@ public class BaseTest {
     public <T> T loadResource(String name, Class<T> klass){
         final InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(name);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        return new GsonFactory().get(GsonFactory.SERIALIZER).fromJson(reader, klass);
+        return new GsonFactory().get(GsonFactory.Companion.getSERIALIZER()).fromJson(reader, klass);
     }
 
     public <T> T loadResourceFromType(String name, TypeToken typeToken){
         final InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(name);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        return new GsonFactory().get(GsonFactory.SERIALIZER).fromJson(reader, typeToken.getType());
+        return new GsonFactory().get(GsonFactory.Companion.getSERIALIZER()).fromJson(reader, typeToken.getType());
     }
 }

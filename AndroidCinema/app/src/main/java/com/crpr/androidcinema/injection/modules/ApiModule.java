@@ -24,7 +24,7 @@ public class ApiModule {
 
     @Provides
     AuthInterceptor provideAuthInterceptor(PropertiesLoader propertiesLoader){
-        return new AuthInterceptor(propertiesLoader.getProperty(PropertiesLoader.API_KEY));
+        return new AuthInterceptor(propertiesLoader.getProperty(PropertiesLoader.Companion.getAPI_KEY()));
     }
 
     @Provides
@@ -56,7 +56,7 @@ public class ApiModule {
     @Provides
     @Singleton
     ApiServiceFactory provideApiServiceFactory(OkHttpClientFactory factory, PropertiesLoader properties){
-        return new ApiServiceFactory(factory.getClient(OkHttpClientFactory.STANDARD_CLIENT),
-                properties.getProperty(PropertiesLoader.API_BASE_URL));
+        return new ApiServiceFactory(factory.getClient(OkHttpClientFactory.Companion.getSTANDARD_CLIENT()),
+                properties.getProperty(PropertiesLoader.Companion.getAPI_BASE_URL()));
     }
 }

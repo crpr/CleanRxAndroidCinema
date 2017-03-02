@@ -1,7 +1,5 @@
 package com.crpr.androidcinema.domain.splash;
 
-import android.util.Log;
-
 import com.crpr.androidcinema.domain.common.Interactor;
 import com.crpr.androidcinema.domain.common.Result;
 import com.crpr.androidcinema.domain.common.configuration.GetConfiguration;
@@ -10,7 +8,6 @@ import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizardResult;
 
 import rx.Observable;
 import rx.Scheduler;
-import rx.functions.Func1;
 
 /**
  * Created by claudioribeiro on 09/07/16.
@@ -33,7 +30,7 @@ public class SplashInteractor extends Interactor implements Splash.Interactor {
                 .flatMap(this::processNextActivity)
                 .observeOn(_mainThread)
                 .subscribeOn(_executorThread)
-                .doOnError(throwable -> Log.e("INTERACTOR ERROR", "DO SOMETHING IN THIS LAYER"));
+                .doOnError(Throwable::printStackTrace);
     }
 
     private Observable<WelcomeWizardResult> processNextActivity(Result result){

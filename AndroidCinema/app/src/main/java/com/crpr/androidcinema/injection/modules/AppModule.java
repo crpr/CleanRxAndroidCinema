@@ -36,7 +36,7 @@ public class AppModule {
     @Provides
     @Singleton
     public Gson provideGson(){
-        return new GsonFactory().get(GsonFactory.SERIALIZER);
+        return new GsonFactory().get(GsonFactory.Companion.getSERIALIZER());
     }
 
     @Provides

@@ -46,7 +46,7 @@ public class InterceptorsFactoryTest {
 
         when(logProvider.get()).thenReturn(rvalue);
 
-        Interceptor result = factory.get(InterceptorsFactory.LOG);
+        Interceptor result = factory.get(InterceptorsFactory.Companion.getLOG());
 
         verify(logProvider, times(1)).get();
         verifyNoMoreInteractions(logProvider);
@@ -65,7 +65,7 @@ public class InterceptorsFactoryTest {
 
         when(authProvider.get()).thenReturn(rvalue);
 
-        Interceptor result = factory.get(InterceptorsFactory.AUTH);
+        Interceptor result = factory.get(InterceptorsFactory.Companion.getAUTH());
 
         verify(authProvider, times(1)).get();
         verifyNoMoreInteractions(authProvider);
@@ -82,7 +82,7 @@ public class InterceptorsFactoryTest {
 
         when(httpProvider.get()).thenReturn(rvalue);
 
-        Interceptor result = factory.get(InterceptorsFactory.HTTP);
+        Interceptor result = factory.get(InterceptorsFactory.Companion.getHTTP());
 
         verify(httpProvider, times(1)).get();
         verifyNoMoreInteractions(httpProvider);

@@ -31,12 +31,12 @@ public class OkHttpClientFactoryTest {
 
         assertThat(factory, notNullValue());
 
-        OkHttpClient okHttpClient = factory.getClient(OkHttpClientFactory.STANDARD_CLIENT);
+        OkHttpClient okHttpClient = factory.getClient(OkHttpClientFactory.Companion.getSTANDARD_CLIENT());
 
         assertThat(okHttpClient, notNullValue());
-        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.AUTH);
-        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.LOG);
-        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.HTTP);
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.Companion.getAUTH());
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.Companion.getLOG());
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.Companion.getHTTP());
         verifyNoMoreInteractions(interceptorsFactory);
         assertEquals(30*1000, okHttpClient.readTimeoutMillis());
         assertEquals(30*1000, okHttpClient.connectTimeoutMillis());
@@ -53,9 +53,9 @@ public class OkHttpClientFactoryTest {
         OkHttpClient okHttpClient = factory.getClient(-1);
 
         assertThat(okHttpClient, notNullValue());
-        verify(interceptorsFactory, times(0)).get(InterceptorsFactory.AUTH);
-        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.LOG);
-        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.HTTP);
+        verify(interceptorsFactory, times(0)).get(InterceptorsFactory.Companion.getAUTH());
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.Companion.getLOG());
+        verify(interceptorsFactory, times(1)).get(InterceptorsFactory.Companion.getHTTP());
         verifyNoMoreInteractions(interceptorsFactory);
         assertEquals(30*1000, okHttpClient.readTimeoutMillis());
         assertEquals(30*1000, okHttpClient.connectTimeoutMillis());

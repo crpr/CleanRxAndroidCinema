@@ -1,11 +1,11 @@
-package com.crpr.androidcinema.data.api.models.enums;
+package com.crpr.androidcinema.data.api.models.enums
 
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by claudioribeiro on 09/07/16.
  */
-public enum Size {
+enum class Size constructor(private val size: String) {
 
     @SerializedName("w45")
     W45("w45"),
@@ -30,13 +30,7 @@ public enum Size {
     @SerializedName("original")
     ORIGINAL("original");
 
-    private final String size;
-
-    Size(String size) {
-        this.size = size;
-    }
-
-    public String raw(){
-        return size;
+    fun raw(): String {
+        return size
     }
 }

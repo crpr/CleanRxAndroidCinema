@@ -35,16 +35,16 @@ public class ApiConfigurationTest extends BaseTest{
                 expectedChangeKeys = 7;
 
         assertThat(configuration, notNullValue());
-        assertThat(configuration.getChangeKeys(), notNullValue());
-        assertThat(configuration.getImagesConfiguration(), notNullValue());
-        assertEquals(expectedBaseUrl, configuration.getImagesConfiguration().getBaseUrl());
-        assertEquals(expectedSecureUrl, configuration.getImagesConfiguration().getSecureBaseUrl());
-        assertEquals(expectedBackdropSize, configuration.getImagesConfiguration().getBackdropSizes().size());
-        assertEquals(expectedLogoSize, configuration.getImagesConfiguration().getLogoSizes().size());
-        assertEquals(expectedPosterSize, configuration.getImagesConfiguration().getPosterSizes().size());
-        assertEquals(expectedProfileSize, configuration.getImagesConfiguration().getProfileSizes().size());
-        assertEquals(expectedStillSizes, configuration.getImagesConfiguration().getStillSizes().size());
-        assertEquals(expectedChangeKeys, configuration.getChangeKeys().size());
+        assertThat(configuration.getChange_keys(), notNullValue());
+        assertThat(configuration.getImages(), notNullValue());
+        assertEquals(expectedBaseUrl, configuration.getImages().getBase_url());
+        assertEquals(expectedSecureUrl, configuration.getImages().getSecure_base_url());
+        assertEquals(expectedBackdropSize, configuration.getImages().getBackdrop_sizes().size());
+        assertEquals(expectedLogoSize, configuration.getImages().getLogo_sizes().size());
+        assertEquals(expectedPosterSize, configuration.getImages().getPoster_sizes().size());
+        assertEquals(expectedProfileSize, configuration.getImages().getProfile_sizes().size());
+        assertEquals(expectedStillSizes, configuration.getImages().getStill_sizes().size());
+        assertEquals(expectedChangeKeys, configuration.getChange_keys().size());
     }
 
 }

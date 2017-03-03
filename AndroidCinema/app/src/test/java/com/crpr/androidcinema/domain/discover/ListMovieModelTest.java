@@ -26,11 +26,11 @@ public class ListMovieModelTest extends BaseTest{
     @Test
     public void builderTest(){
         ListMovieModel model = ListMovieModel
-                                .id(mockResponse.getId())
+                                .Companion.id(mockResponse.getId())
                                 .title(mockResponse.getTitle())
-                                .imagePath(mockResponse.getBackdropPath())
+                                .imagePath(mockResponse.getBackdrop_path())
                                 .popularity(mockResponse.getPopularity())
-                                .votesAvg(mockResponse.getVoteAverage())
+                                .votesAvg(mockResponse.getVote_average())
                                 .build();
 
 
@@ -38,9 +38,9 @@ public class ListMovieModelTest extends BaseTest{
         assertThat(model, notNullValue());
         assertEquals(mockResponse.getId(), model.getId());
         assertEquals(mockResponse.getTitle(), model.getTitle());
-        assertEquals(mockResponse.getBackdropPath(), model.getImagePath());
+        assertEquals(mockResponse.getBackdrop_path(), model.getImagePath());
         assertEquals(mockResponse.getPopularity(), model.getPopularity());
-        assertEquals(mockResponse.getVoteAverage(), model.getVoteAverage());
+        assertEquals(mockResponse.getVote_average(), model.getVoteAverage());
     }
 
 }

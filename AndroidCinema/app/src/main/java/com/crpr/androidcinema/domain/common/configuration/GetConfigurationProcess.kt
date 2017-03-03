@@ -18,9 +18,9 @@ class GetConfigurationProcess(private val _service: GetConfiguration.Service) : 
     private fun configureImageUrlProvider(configuration: ApiConfiguration): Observable<Result> {
 
         val model = ConfigurationModel
-                .url(configuration.images.base_url)
-                .secureUrl(configuration.images.secure_base_url)
-                .build() ?: return Observable.just(Result(Result.ERROR))
+                .url(configuration.images.base_url!!)
+                .secureUrl(configuration.images.secure_base_url!!)
+                .build()
 
         ImageUrlProvider.sharedInstance().setCurrentConfig(model)
 

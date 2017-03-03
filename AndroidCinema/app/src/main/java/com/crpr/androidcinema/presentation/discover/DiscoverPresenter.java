@@ -26,7 +26,7 @@ public class DiscoverPresenter extends Presenter implements Discover.Presenter {
     }
 
     public final void onError(Throwable throwable) {
-        _isMakingRequest = false;
+        set_isMakingRequest(false);
         _view.showError(throwable.getMessage());
     }
 
@@ -37,19 +37,19 @@ public class DiscoverPresenter extends Presenter implements Discover.Presenter {
 
     @Override
     public void discoverMovies() {
-        if(_isMakingRequest){
+        if(get_isMakingRequest()){
             return;
         }
 
-        _isMakingRequest = true;
-        _subscriptions.add(_interactor.discoverMovies()
+        set_isMakingRequest(true);
+        get_subscriptions().add(_interactor.discoverMovies()
                 .subscribe(this::onReceiveResult,
                         this::onError));
     }
 
     @Override
     public void onReceiveResult(DiscoverMovieListResult result) {
-        _isMakingRequest = false;
+        set_isMakingRequest(false);
 
         if(result.hasError()){
             _view.showError(result.getMessage());

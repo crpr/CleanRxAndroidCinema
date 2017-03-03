@@ -4,7 +4,6 @@ import com.crpr.androidcinema.base.BaseTest;
 import com.crpr.androidcinema.base.ResourceFiles;
 import com.crpr.androidcinema.data.api.models.ApiConfiguration;
 import com.crpr.androidcinema.domain.common.configuration.ConfigurationModel;
-import com.crpr.androidcinema.domain.common.providers.ImageUrlProvider;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,12 +27,12 @@ public class ConfigurationModelTest extends BaseTest{
     @Test
     public void builderTest() {
         ConfigurationModel model = ConfigurationModel
-                .url(configuration.getImagesConfiguration().getBaseUrl())
-                .secureUrl(configuration.getImagesConfiguration().getSecureBaseUrl())
+                .Companion.url(configuration.getImages().getBase_url())
+                .secureUrl(configuration.getImages().getSecure_base_url())
                 .build();
 
         assertThat(model, notNullValue());
-        assertEquals(model.getBaseUrl(), configuration.getImagesConfiguration().getBaseUrl());
-        assertEquals(model.getSecureBaseUrl(), configuration.getImagesConfiguration().getSecureBaseUrl());
+        assertEquals(model.getBaseUrl(), configuration.getImages().getBase_url());
+        assertEquals(model.getSecureBaseUrl(), configuration.getImages().getSecure_base_url());
     }
 }

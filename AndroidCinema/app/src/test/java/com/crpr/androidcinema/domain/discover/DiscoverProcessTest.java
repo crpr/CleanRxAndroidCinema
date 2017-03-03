@@ -46,11 +46,11 @@ public class DiscoverProcessTest extends BaseTest{
     @Test
     public void discoverMoviesTest(){
         ConfigurationModel model = ConfigurationModel
-                .url(configuration.getImagesConfiguration().getBaseUrl())
-                .secureUrl(configuration.getImagesConfiguration().getSecureBaseUrl())
+                .Companion.url(configuration.getImages().getBase_url())
+                .secureUrl(configuration.getImages().getSecure_base_url())
                 .build();
 
-        ImageUrlProvider.sharedInstance().setCurrentConfig(model);
+        ImageUrlProvider.Companion.sharedInstance().setCurrentConfig(model);
 
         Observable<ApiResponse<ApiMovie>> observable = Observable.just(mockResponse);
 

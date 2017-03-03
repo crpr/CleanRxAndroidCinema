@@ -9,6 +9,8 @@ import com.crpr.androidcinema.domain.welcome_wizard.WelcomeWizard;
 import com.crpr.androidcinema.presentation.welcome_wizard.base.PagerActivity;
 import com.crpr.androidcinema.presentation.welcome_wizard.fragments.DefaultSlideFragment;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -68,19 +70,6 @@ public class WelcomeWizardActivity extends PagerActivity implements WelcomeWizar
     }
 
     @Override
-    public void buildSlides(List<DefaultSlideFragment> slides) {
-        for(DefaultSlideFragment slide : slides){
-            addSlide(slide);
-        }
-
-        setSkipTextColor(ContextCompat.getColor(this, R.color.grey_light));
-        setNextDoneContentColor(ContextCompat.getColor(this, R.color.accent));
-        setIndicatorSelectedColor(ContextCompat.getColor(this, R.color.accent));
-        setIndicatorUnselectedColor(ContextCompat.getColor(this, R.color.grey_medium));
-        setNavBarBackgroundColor(ContextCompat.getColor(this, R.color.primary_dark));
-    }
-
-    @Override
     public void userIsDone() {
         _navigator.navigate(this);
     }
@@ -93,5 +82,19 @@ public class WelcomeWizardActivity extends PagerActivity implements WelcomeWizar
     @Override
     public void showNoConnection() {
 
+    }
+
+    @Override
+    public void buildSlides(@NotNull List<? extends DefaultSlideFragment> slides) {
+        
+        for(DefaultSlideFragment slide : slides){
+            addSlide(slide);
+        }
+
+        setSkipTextColor(ContextCompat.getColor(this, R.color.grey_light));
+        setNextDoneContentColor(ContextCompat.getColor(this, R.color.accent));
+        setIndicatorSelectedColor(ContextCompat.getColor(this, R.color.accent));
+        setIndicatorUnselectedColor(ContextCompat.getColor(this, R.color.grey_medium));
+        setNavBarBackgroundColor(ContextCompat.getColor(this, R.color.primary_dark));
     }
 }

@@ -9,9 +9,9 @@ import com.crpr.androidcinema.domain.discover.ListMovieModel
 /**
  * Created by claudioribeiro on 13/07/16.
  */
-class ApiListMovieConverter : Converter<ListMovieModel, ApiMovie> {
+class ApiListMovieConverter : Converter<ListMovieModel, ApiMovie>{
 
-    override fun map(parseObject: ApiMovie): ListMovieModel {
+    override fun mapTo(parseObject: ApiMovie): ListMovieModel {
         var url: String? = ImageUrlProvider.sharedInstance().getUrlFor(Size.W300)
 
         if (url != null) {
@@ -19,10 +19,11 @@ class ApiListMovieConverter : Converter<ListMovieModel, ApiMovie> {
         }
 
         return ListMovieModel.id(parseObject.id)
-                .title(parseObject.title)
-                .imagePath(url)
+                .title(parseObject.title!!)
+                .imagePath(url!!)
                 .popularity(parseObject.popularity)
                 .votesAvg(parseObject.vote_average)
                 .build()
     }
+
 }

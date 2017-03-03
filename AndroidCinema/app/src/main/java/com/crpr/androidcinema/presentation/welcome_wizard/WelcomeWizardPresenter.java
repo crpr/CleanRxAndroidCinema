@@ -27,7 +27,7 @@ public class WelcomeWizardPresenter extends Presenter implements WelcomeWizard.P
 
     @Override
     public void onCreate() {
-        _subscriptions.add(getSlides()
+        get_subscriptions().add(getSlides()
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeOn(Schedulers.io())
                             .subscribe(defaultSlideFragments -> {
@@ -58,7 +58,7 @@ public class WelcomeWizardPresenter extends Presenter implements WelcomeWizard.P
     }
 
     public final void userIsDoneWithWelcomeWizard() {
-        _subscriptions.add(_interactor.updateWelcomeWizardDone(true)
+        get_subscriptions().add(_interactor.updateWelcomeWizardDone(true)
                                     .subscribe(aBoolean -> { _view.userIsDone(); }));
     }
 }

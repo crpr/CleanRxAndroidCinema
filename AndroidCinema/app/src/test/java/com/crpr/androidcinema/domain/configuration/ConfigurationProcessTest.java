@@ -5,7 +5,6 @@ import com.crpr.androidcinema.base.ResourceFiles;
 import com.crpr.androidcinema.data.api.models.ApiConfiguration;
 import com.crpr.androidcinema.data.api.models.enums.Size;
 import com.crpr.androidcinema.domain.common.Result;
-import com.crpr.androidcinema.domain.common.configuration.ConfigurationModel;
 import com.crpr.androidcinema.domain.common.configuration.GetConfiguration;
 import com.crpr.androidcinema.domain.common.configuration.GetConfigurationProcess;
 import com.crpr.androidcinema.domain.common.providers.ImageUrlProvider;
@@ -19,7 +18,6 @@ import rx.observers.TestSubscriber;
 
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -59,10 +57,10 @@ public class ConfigurationProcessTest extends BaseTest{
 
         assertThat(result, notNullValue());
 
-        String expectedUrl = configuration.getImagesConfiguration().getBaseUrl() +
-                                configuration.getImagesConfiguration().getLogoSizes().get(4).raw();
+        String expectedUrl = configuration.getImages().getBase_url() +
+                                configuration.getImages().getLogo_sizes().get(4).raw();
 
-        assertEquals(expectedUrl, ImageUrlProvider.sharedInstance()
+        assertEquals(expectedUrl, ImageUrlProvider.Companion.sharedInstance()
                                         .getUrlFor(Size.W300));
     }
 

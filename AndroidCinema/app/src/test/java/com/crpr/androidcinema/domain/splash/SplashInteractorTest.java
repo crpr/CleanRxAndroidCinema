@@ -39,10 +39,10 @@ public class SplashInteractorTest {
 
     @Test
     public void startTest(){
-        Observable<Result> observable = Observable.just(new Result(Result.OK));
+        Observable<Result> observable = Observable.just(new Result(Result.Companion.getOK()));
         when(process.getConfiguration()).thenReturn(observable);
 
-        Observable<WelcomeWizardResult> wwObservable = Observable.just(new WelcomeWizardResult(Result.OK, true));
+        Observable<WelcomeWizardResult> wwObservable = Observable.just(new WelcomeWizardResult(Result.Companion.getOK(), true));
         when(wwProcess.checkWelcomeWizardDone()).thenReturn(wwObservable);
 
         TestSubscriber<Result> testSubscriber = new TestSubscriber<>();
@@ -59,6 +59,6 @@ public class SplashInteractorTest {
         verifyNoMoreInteractions(wwProcess);
 
         assertThat(result, notNullValue());
-        assertEquals(result.hasError(), new Result(Result.OK).hasError());
+        assertEquals(result.hasError(), new Result(Result.Companion.getOK()).hasError());
     }
 }

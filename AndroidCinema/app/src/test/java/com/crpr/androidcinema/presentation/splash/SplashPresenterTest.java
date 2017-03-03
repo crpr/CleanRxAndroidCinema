@@ -35,7 +35,7 @@ public class SplashPresenterTest {
 
     @Test
     public void getConfigurationTest(){
-        WelcomeWizardResult rvalue = new WelcomeWizardResult(Result.OK, true);
+        WelcomeWizardResult rvalue = new WelcomeWizardResult(Result.Companion.getOK(), true);
         Observable<WelcomeWizardResult> observable = Observable.just(rvalue);
         when(interactor.start()).thenReturn(observable);
 
@@ -49,7 +49,7 @@ public class SplashPresenterTest {
     @Test
     public void getConfigurationErrorTest(){
         String errorMessage = "error message";
-        WelcomeWizardResult rvalue = new WelcomeWizardResult(Result.ERROR, errorMessage);
+        WelcomeWizardResult rvalue = new WelcomeWizardResult(Result.Companion.getERROR(), errorMessage);
         Observable<WelcomeWizardResult> observable = Observable.just(rvalue);
         when(interactor.start()).thenReturn(observable);
 

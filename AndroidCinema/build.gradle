@@ -1,10 +1,10 @@
 ext {
     configuration = [
             package             : "com.crpr.androidcinema",
-            buildToolsVersion   : "24.0.0",
-            compileVersion      : 24,
+            buildToolsVersion   : "25.0.0",
+            compileVersion      : 25,
             minSdk              : 19,
-            targetSdk           : 24,
+            targetSdk           : 25,
             version_code        : 1,
             version_name        : "0.1.0",
     ]

@@ -12,22 +12,19 @@ import com.google.gson.reflect.TypeToken
  */
 class GsonFactory {
 
-    operator fun get(type: Int): Gson? {
+    operator fun get(type: Int): Gson {
         when (type) {
-            SIMPLE -> return Gson()
-
             SERIALIZER -> return GsonBuilder()
                     .registerTypeAdapter(object : TypeToken<ApiResponse<ApiMovie>>() {
                     }.type,
                             ApiResponseDeserializer<ApiMovie>()).create()
 
-            else -> return null
+            else -> return Gson()
         }
     }
 
     companion object {
-        val SIMPLE = 1
-        val SERIALIZER = 2
+        val SERIALIZER = 1
     }
 
 }

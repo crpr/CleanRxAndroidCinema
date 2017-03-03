@@ -74,7 +74,7 @@ public class DiscoverFragment extends Fragment implements Discover.View {
     private void setupPresenter() {
         _presenter.bindView(this);
 
-        if(ConnectionUtils.isConnectionAvailable(getActivity())) {
+        if(ConnectionUtils.INSTANCE.isConnectionAvailable(getActivity())) {
             _presenter.discoverMovies();
             return;
         }

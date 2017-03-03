@@ -44,7 +44,7 @@ public class DiscoverPresenterTest extends BaseTest {
 
     @Test
     public void discoverMoviesTest() {
-        DiscoverMovieListResult rvalue = new DiscoverMovieListResult(Result.OK, listMovieModels);
+        DiscoverMovieListResult rvalue = new DiscoverMovieListResult(Result.Companion.getOK(), listMovieModels);
         Observable<DiscoverMovieListResult> observable = Observable.just(rvalue);
         when(interactor.discoverMovies()).thenReturn(observable);
 
@@ -58,7 +58,7 @@ public class DiscoverPresenterTest extends BaseTest {
     @Test
     public void discoverMoviesErrorTest(){
         String errorMessage = "error message";
-        DiscoverMovieListResult rvalue = new DiscoverMovieListResult(Result.ERROR, errorMessage);
+        DiscoverMovieListResult rvalue = new DiscoverMovieListResult(Result.Companion.getERROR(), errorMessage);
         Observable<DiscoverMovieListResult> observable = Observable.just(rvalue);
         when(interactor.discoverMovies()).thenReturn(observable);
 

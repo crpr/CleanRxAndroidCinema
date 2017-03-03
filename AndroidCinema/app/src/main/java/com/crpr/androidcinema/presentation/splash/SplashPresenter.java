@@ -33,19 +33,19 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
     }
 
     public final void getConfiguration(){
-        if(_isMakingRequest){
+        if(get_isMakingRequest()){
             return;
         }
 
-        _isMakingRequest = true;
-        _subscriptions.add(_interactor.start()
+        set_isMakingRequest(true);
+        get_subscriptions().add(_interactor.start()
                             .subscribe(this::onReceiveResult,
                                     this::onError));
     }
 
     @Override
     public final void onReceiveResult(WelcomeWizardResult result){
-        _isMakingRequest = false;
+        set_isMakingRequest(false);
 
         if(result.hasError()){
             _view.showError(result.getMessage());
@@ -57,7 +57,7 @@ public class SplashPresenter extends Presenter implements Splash.Presenter {
     }
 
     public final void onError(Throwable throwable) {
-        _isMakingRequest = false;
+        set_isMakingRequest(false);
         _view.showError(throwable.getMessage());
     }
 }

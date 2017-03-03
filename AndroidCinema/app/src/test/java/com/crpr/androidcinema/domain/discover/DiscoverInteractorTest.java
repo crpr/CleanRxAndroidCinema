@@ -3,9 +3,7 @@ package com.crpr.androidcinema.domain.discover;
 import com.crpr.androidcinema.base.BaseTest;
 import com.crpr.androidcinema.base.ResourceFiles;
 import com.crpr.androidcinema.data.api.models.ApiMovie;
-import com.crpr.androidcinema.data.api.responses.ApiResponse;
 import com.crpr.androidcinema.domain.common.Result;
-import com.crpr.androidcinema.presentation.common.Base;
 import com.google.gson.reflect.TypeToken;
 
 import org.junit.Before;
@@ -44,7 +42,7 @@ public class DiscoverInteractorTest extends BaseTest{
 
     @Test
     public void discoverMoviesTest(){
-        DiscoverMovieListResult movieListResult = new DiscoverMovieListResult(Result.OK, listMovieModels);
+        DiscoverMovieListResult movieListResult = new DiscoverMovieListResult(Result.Companion.getOK(), listMovieModels);
 
         Observable<DiscoverMovieListResult> observable = Observable.just(movieListResult);
         when(process.discoverMovies()).thenReturn(observable);

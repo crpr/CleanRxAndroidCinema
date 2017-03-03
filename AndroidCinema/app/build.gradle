@@ -81,6 +81,9 @@ dependencies {
     apt "com.google.dagger:dagger-compiler:${libs.dagger}"
     apt "com.jakewharton:butterknife-compiler:${libs.butterknife}"
 
+    kapt "com.google.dagger:dagger-compiler:${libs.dagger}"
+    kapt "com.jakewharton:butterknife-compiler:${libs.butterknife}"
+
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Android
